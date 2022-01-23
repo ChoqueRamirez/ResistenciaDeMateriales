@@ -1,7 +1,22 @@
+import Secciones.BarraCircular;
+import Secciones.VigaRectangular;
+
 public class Main {
     public static void main(String[] args) {
-        Viga VigaRectangular = new Viga(20, 10, 500);
-        VigaRectangular.Baricentro();
-        VigaRectangular.MomentoDeInercia();
+        VigaRectangular Viga1 = new VigaRectangular(20, 10, 500, 210, 80);
+        Viga1.Baricentro();
+        Viga1.MomentosDeInercia();
+        Viga1.RigidezAxial();
+
+        System.out.println("");
+
+        BarraCircular Viga2 = new BarraCircular(5, 500, 210, 80);
+        Viga2.Baricentro();
+        Viga2.MomentosPolarDeInercia();
+        Viga2.RigidezAxial();
+
+
+
+
     }
 }
