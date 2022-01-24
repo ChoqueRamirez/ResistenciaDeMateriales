@@ -33,8 +33,18 @@ public class VigaRectangular {
     }
 
     public void RigidezAxial() {
-        int Rigidez;
-        Rigidez = (int) ((E * area()) / largo);
-        System.out.println("Rigidez Axial = " + Rigidez);
+        int RigidezAxil;
+        RigidezAxil = (int) ((E * area()) / largo);
+        System.out.println("Rigidez Axial = " + RigidezAxil);
+    }
+
+    public void CondicionRigidezFlexional(){
+        int CondicionRFlexional;
+        CondicionRFlexional = (int) (Jy * E);
+        System.out.println("CondicionRFlexional = " + CondicionRFlexional);
+    }
+
+    public void CondicionRigidezTorsional(){
+        System.out.println("No puede determinarse. No es una seccion circular tampoco puede connsiderarse una seccion abierta de paredes delgadas para aplicar la teoria de Saint Venant");
     }
 }

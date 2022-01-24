@@ -33,5 +33,13 @@ public class BarraCircular {
         System.out.println("Rigidez Axial = " + Rigidez);
     }
 
+    public void CondicionRigidezFlexional() {
+        int CondicionRFlexional;
+        CondicionRFlexional = (int) (Jp * E);
+        System.out.println("CondicionRFlexional = " + CondicionRFlexional);
+    }
+
+
+
 
 }
