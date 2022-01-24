@@ -8,6 +8,7 @@ public class BarraCircular {
     public int G;
 
     public BarraCircular(float radio, float largo, int E, int G){
+        System.out.println("Barra Circular");
         this.radio = radio;
         this.largo = largo;
         this.E = E;
@@ -34,11 +35,16 @@ public class BarraCircular {
     }
 
     public void CondicionRigidezFlexional() {
-        int CondicionRFlexional;
-        CondicionRFlexional = (int) (Jp * E);
-        System.out.println("CondicionRFlexional = " + CondicionRFlexional);
+        int CondicionRF;
+        CondicionRF = (int) (Jp * E);
+        System.out.println("Condicion de Rigidez Flexional = " + CondicionRF);
     }
 
+    public void CondicionRigidezTorsional(){
+        int CondcionRT;
+        CondcionRT = (int) (Jp * G);
+        System.out.println("Condcion de Rigidez Torsional = " + CondcionRT);
+    }
 
 
 

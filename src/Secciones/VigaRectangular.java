@@ -10,6 +10,7 @@ public class VigaRectangular {
     public float Jz;
 
     public VigaRectangular(float altura, float ancho, float largo, int E, int G){
+        System.out.println("Viga Rectangular");
         this.altura = altura;
         this.ancho = ancho;
         this.largo = largo;
@@ -45,6 +46,6 @@ public class VigaRectangular {
     }
 
     public void CondicionRigidezTorsional(){
-        System.out.println("No puede determinarse. No es una seccion circular tampoco puede connsiderarse una seccion abierta de paredes delgadas para aplicar la teoria de Saint Venant");
+        System.out.println("Cond. Rigidez Torsional: No puede determinarse. No es una seccion circular tampoco puede connsiderarse una seccion abierta de paredes delgadas para aplicar la teoria de Saint Venant");
     }
 }

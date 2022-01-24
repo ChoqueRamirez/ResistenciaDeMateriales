@@ -7,6 +7,8 @@ public class Main {
         Viga1.Baricentro();
         Viga1.MomentosDeInercia();
         Viga1.RigidezAxial();
+        Viga1.CondicionRigidezFlexional();
+        Viga1.CondicionRigidezTorsional();
 
         System.out.println("");
 
@@ -14,6 +16,8 @@ public class Main {
         Viga2.Baricentro();
         Viga2.MomentosPolarDeInercia();
         Viga2.RigidezAxial();
+        Viga2.CondicionRigidezFlexional();
+        Viga2.CondicionRigidezTorsional();
 
 
 
