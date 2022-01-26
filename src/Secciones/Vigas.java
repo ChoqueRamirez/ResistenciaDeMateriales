@@ -12,6 +12,8 @@ public abstract class Vigas {
     protected float Jy;
     protected float Jz;
     protected float Jp;
+    protected float area;
+
 
 
     public Vigas(float altura, float ancho, float largo, int E, int G) {
@@ -30,7 +32,7 @@ public abstract class Vigas {
     }
 
 
-    public abstract double area();
+    public abstract void area();
 
     public abstract void Baricentro();
 

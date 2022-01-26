@@ -9,17 +9,17 @@ public class BarraCircular extends Vigas {
     }
 
     @Override
-    public double area(){
-        return (3.14 * radio * radio);
+    public void area(){
+        area = (float) (3.14 * radio * radio);
+        System.out.println("Area: " + area);
     }
 
     public void Baricentro(){
-        System.out.println("Al ser doblemente simetrica el Baricentro se encuentra en el centro de la seccion");
+        System.out.println("Baricentro: al ser doblemente simetrica este se encuentra en el centro de la seccion");
     }
 
     @Override
     public void MomentosDeInercia() {
-
     }
 
     public void  MomentosPolarDeInercia(){
@@ -29,7 +29,7 @@ public class BarraCircular extends Vigas {
 
     public void RigidezAxial(){
         int Rigidez;
-        Rigidez = (int) ((E * area())/largo);
+        Rigidez = (int) ((E * area)/largo);
         System.out.println("Rigidez Axial = " + Rigidez);
     }
 

@@ -11,17 +11,19 @@ public class VigaRectangular extends Vigas {
 
 
     @Override
-    public double area(){
-        return altura * ancho;
+    public void area(){
+        area = ancho * altura;
+        System.out.println("Area = " + area);
     }
 
     @Override
     public void Baricentro(){
-        System.out.println("Al ser doblemente simetrica el Baricentro se encuentra en el centro de la seccion");
+        System.out.println("Baricentro: al ser doblemente simetrica este se encuentra en el centro de la seccion");
     }
 
     @Override
     public void MomentosPolarDeInercia() {
+
 
     }
 
@@ -36,7 +38,7 @@ public class VigaRectangular extends Vigas {
     @Override
     public void RigidezAxial() {
         int RigidezAxil;
-        RigidezAxil = (int) ((E * area()) / largo);
+        RigidezAxil = (int) ((E * area) / largo);
         System.out.println("Rigidez Axial = " + RigidezAxil);
     }
 
