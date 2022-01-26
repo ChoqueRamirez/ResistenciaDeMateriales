@@ -3,14 +3,15 @@ package Secciones;
 public class VigaRectangular extends Vigas {
 
 
-
     public VigaRectangular(float altura, float ancho, float largo, int E, int G){
         super(altura, ancho, largo, E, G);
-        System.out.println("Viga Rectangular");
+        System.out.println("Viga Rectangular - Asumimos Linealidades: estatica, cinematica y mecánica");
 
     }
 
-    private double area(){
+
+    @Override
+    public double area(){
         return altura * ancho;
     }
 

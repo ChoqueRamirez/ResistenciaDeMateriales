@@ -1,19 +1,16 @@
 package Secciones;
 
 public class BarraCircular extends Vigas {
-    public float radio;
-    public float largo;
-    public float Jp;
-    public int E;
-    public int G;
+
 
     public BarraCircular(float radio, float largo, int E, int G){
         super(radio, largo, E, G);
-        System.out.println("Barra Circular");
+        System.out.println("Barra Circular - Asumimos Linealidades: estatica, cinematica y mecánica");
     }
 
-    private double area(){
-        return Math.PI * radio * radio;
+    @Override
+    public double area(){
+        return (3.14 * radio * radio);
     }
 
     public void Baricentro(){

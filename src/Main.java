@@ -19,7 +19,7 @@ public class Main {
         Viga2.CondicionRigidezFlexional();
         Viga2.CondicionRigidezTorsional();
 
-
+        System.out.println("Area:" + Viga2.area());
 
 
     }

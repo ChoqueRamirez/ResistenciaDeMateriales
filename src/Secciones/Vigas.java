@@ -3,34 +3,36 @@ package Secciones;
 import com.sun.javafx.collections.FloatArraySyncer;
 
 public abstract class Vigas {
-    public float altura;
-    public float ancho;
-    public float largo;
-    public float radio;
-    public int E;
-    public int G;
-    public float Jy;
-    public float Jz;
+    protected float altura;
+    protected float ancho;
+    protected float largo;
+    protected float radio;
+    protected int E;
+    protected int G;
+    protected float Jy;
+    protected float Jz;
+    protected float Jp;
 
 
-    public Vigas(float altura, float ancho, float largo, int E, int G, float radio) {
+    public Vigas(float altura, float ancho, float largo, int E, int G) {
         this.altura = altura;
         this.ancho = ancho;
         this.largo = largo;
-        this.radio = radio;
         this.E = E;
         this.G = G;
     }
 
     public Vigas(float radio, float largo , int E, int G) {
-        this.altura = radio;
+        this.radio = radio;
         this.largo = largo;
         this.E = E;
         this.G = G;
     }
 
 
-    public abstract Baricentro;
+    public abstract double area();
+
+    public abstract void Baricentro();
 
     public abstract void MomentosDeInercia();
 
