@@ -1,31 +1,30 @@
 package Secciones;
 
-public class VigaRectangular {
-    public float altura;
-    public float ancho;
-    public float largo;
-    public int E;
-    public int G;
-    public float Jy;
-    public float Jz;
+public class VigaRectangular extends Vigas {
+
+
 
     public VigaRectangular(float altura, float ancho, float largo, int E, int G){
+        super(altura, ancho, largo, E, G);
         System.out.println("Viga Rectangular");
-        this.altura = altura;
-        this.ancho = ancho;
-        this.largo = largo;
-        this.E = E;
-        this.G = G;
+
     }
 
     private double area(){
         return altura * ancho;
     }
 
+    @Override
     public void Baricentro(){
         System.out.println("Al ser doblemente simetrica el Baricentro se encuentra en el centro de la seccion");
     }
 
+    @Override
+    public void MomentosPolarDeInercia() {
+
+    }
+
+    @Override
     public void MomentosDeInercia(){
         Jy = (ancho * altura * altura * altura)/12;
         Jz = (altura * ancho * ancho * ancho)/12;
@@ -33,18 +32,21 @@ public class VigaRectangular {
         System.out.println("Jz: " + Jz + " cm4");
     }
 
+    @Override
     public void RigidezAxial() {
         int RigidezAxil;
         RigidezAxil = (int) ((E * area()) / largo);
         System.out.println("Rigidez Axial = " + RigidezAxil);
     }
 
+    @Override
     public void CondicionRigidezFlexional(){
         int CondicionRFlexional;
         CondicionRFlexional = (int) (Jy * E);
         System.out.println("CondicionRFlexional = " + CondicionRFlexional);
     }
 
+    @Override
     public void CondicionRigidezTorsional(){
         System.out.println("Cond. Rigidez Torsional: No puede determinarse. No es una seccion circular tampoco puede connsiderarse una seccion abierta de paredes delgadas para aplicar la teoria de Saint Venant");
     }

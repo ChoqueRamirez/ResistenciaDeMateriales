@@ -1,6 +1,6 @@
 package Secciones;
 
-public class BarraCircular {
+public class BarraCircular extends Vigas {
     public float radio;
     public float largo;
     public float Jp;
@@ -8,11 +8,8 @@ public class BarraCircular {
     public int G;
 
     public BarraCircular(float radio, float largo, int E, int G){
+        super(radio, largo, E, G);
         System.out.println("Barra Circular");
-        this.radio = radio;
-        this.largo = largo;
-        this.E = E;
-        this.G = G;
     }
 
     private double area(){
@@ -21,6 +18,11 @@ public class BarraCircular {
 
     public void Baricentro(){
         System.out.println("Al ser doblemente simetrica el Baricentro se encuentra en el centro de la seccion");
+    }
+
+    @Override
+    public void MomentosDeInercia() {
+
     }
 
     public void  MomentosPolarDeInercia(){
