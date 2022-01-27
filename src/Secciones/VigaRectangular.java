@@ -1,13 +1,10 @@
 package Secciones;
 
-public class VigaRectangular {
-    public float altura;
-    public float ancho;
-    public float largo;
+public class VigaRectangular extends Geometria{
+    public Geometria geometriaRectangular;
     public int E;
     public int G;
-    public float Jy;
-    public float Jz;
+
 
     public VigaRectangular(float altura, float ancho, float largo, int E, int G){
         System.out.println("Viga Rectangular");
