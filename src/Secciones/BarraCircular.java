@@ -1,26 +1,25 @@
 package Secciones;
 
-public class BarraCircular {
-    public float radio;
-    public float largo;
-    public float Jp;
-    public int E;
-    public int G;
+public class BarraCircular extends Vigas {
+
 
     public BarraCircular(float radio, float largo, int E, int G){
-        System.out.println("Barra Circular");
-        this.radio = radio;
-        this.largo = largo;
-        this.E = E;
-        this.G = G;
+        super(radio, largo, E, G);
+        System.out.println("Barra Circular - Asumimos Linealidades: estatica, cinematica y mecánica");
     }
 
-    private double area(){
-        return Math.PI * radio * radio;
+    @Override
+    public void area(){
+        area = (float) (3.14 * radio * radio);
+        System.out.println("Area: " + area);
     }
 
     public void Baricentro(){
-        System.out.println("Al ser doblemente simetrica el Baricentro se encuentra en el centro de la seccion");
+        System.out.println("Baricentro: al ser doblemente simetrica este se encuentra en el centro de la seccion");
+    }
+
+    @Override
+    public void MomentosDeInercia() {
     }
 
     public void  MomentosPolarDeInercia(){
@@ -30,7 +29,7 @@ public class BarraCircular {
 
     public void RigidezAxial(){
         int Rigidez;
-        Rigidez = (int) ((E * area())/largo);
+        Rigidez = (int) ((E * area)/largo);
         System.out.println("Rigidez Axial = " + Rigidez);
     }
 
