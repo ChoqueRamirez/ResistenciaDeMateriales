@@ -18,6 +18,8 @@ public class IPNDobleT extends Vigas{
 
     @Override
     public void Baricentro() {
+        System.out.println("Baricentro: al ser doblemente simetrica este se encuentra en el centro de la seccion");
+        System.out.println("Tomando como referencia el extremo izquierdo de la seccion con una terna X e Y: X= " + ancho/2 + "cm; Y= " + altura/2 + "cm");
 
     }
 
