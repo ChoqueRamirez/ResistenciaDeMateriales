@@ -15,7 +15,7 @@ public class BarraCircular extends Vigas {
     }
 
     public void Baricentro(){
-        System.out.println("Baricentro: al ser doblemente simetrica este se encuentra en el centro de la seccion");
+        System.out.println("Baricentro: al tener simetria polar, este se encuentra en el centro de la seccion");
     }
 
     @Override

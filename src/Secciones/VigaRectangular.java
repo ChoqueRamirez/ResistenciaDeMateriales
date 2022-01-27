@@ -13,18 +13,18 @@ public class VigaRectangular extends Vigas {
     @Override
     public void area(){
         area = ancho * altura;
-        System.out.println("Area = " + area);
+        System.out.println("Area = " + area + " cm2");
     }
 
     @Override
     public void Baricentro(){
         System.out.println("Baricentro: al ser doblemente simetrica este se encuentra en el centro de la seccion");
+        System.out.println("Tomando como referencia el extremo izquierdo de la seccion con una terna X e Y: X= " + ancho/2 + "cm; Y= " + altura/2 + "cm");
     }
 
     @Override
     public void MomentosPolarDeInercia() {
-
-
+        System.out.println("No es una seccion circular");
     }
 
     @Override
@@ -37,9 +37,9 @@ public class VigaRectangular extends Vigas {
 
     @Override
     public void RigidezAxial() {
-        int RigidezAxil;
-        RigidezAxil = (int) ((E * area) / largo);
-        System.out.println("Rigidez Axial = " + RigidezAxil);
+        int RigidezAxial;
+        RigidezAxial = (int) ((E * area) / largo);
+        System.out.println("Rigidez Axial = " + RigidezAxial);
     }
 
     @Override
