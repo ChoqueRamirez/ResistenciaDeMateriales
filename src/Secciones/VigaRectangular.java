@@ -1,28 +1,37 @@
 package Secciones;
 
-public class VigaRectangular extends Geometria{
+
+public class VigaRectangular extends Vigas{
     public Geometria geometriaRectangular;
     public int E;
     public int G;
 
 
     public VigaRectangular(float altura, float ancho, float largo, int E, int G){
-        System.out.println("Viga Rectangular");
-        this.altura = altura;
-        this.ancho = ancho;
-        this.largo = largo;
-        this.E = E;
-        this.G = G;
+        super(altura, ancho, largo, E, G);
+        System.out.println("Viga Rectangular - Asumimos Linealidades: estatica, cinematica y mecánica");
+
     }
 
-    private double area(){
-        return altura * ancho;
+
+    @Override
+    public void area(){
+        area = ancho * altura;
+        System.out.println("Area = " + area + " cm2");
     }
 
+    @Override
     public void Baricentro(){
-        System.out.println("Al ser doblemente simetrica el Baricentro se encuentra en el centro de la seccion");
+        System.out.println("Baricentro: al ser doblemente simetrica este se encuentra en el centro de la seccion");
+        System.out.println("Tomando como referencia el extremo izquierdo de la seccion con una terna X e Y: X= " + ancho/2 + "cm; Y= " + altura/2 + "cm");
     }
 
+    @Override
+    public void MomentosPolarDeInercia() {
+        System.out.println("No es una seccion circular");
+    }
+
+    @Override
     public void MomentosDeInercia(){
         Jy = (ancho * altura * altura * altura)/12;
         Jz = (altura * ancho * ancho * ancho)/12;
@@ -30,18 +39,21 @@ public class VigaRectangular extends Geometria{
         System.out.println("Jz: " + Jz + " cm4");
     }
 
+    @Override
     public void RigidezAxial() {
-        int RigidezAxil;
-        RigidezAxil = (int) ((E * area()) / largo);
-        System.out.println("Rigidez Axial = " + RigidezAxil);
+        int RigidezAxial;
+        RigidezAxial = (int) ((E * area) / largo);
+        System.out.println("Rigidez Axial = " + RigidezAxial);
     }
 
+    @Override
     public void CondicionRigidezFlexional(){
         int CondicionRFlexional;
         CondicionRFlexional = (int) (Jy * E);
         System.out.println("CondicionRFlexional = " + CondicionRFlexional);
     }
 
+    @Override
     public void CondicionRigidezTorsional(){
         System.out.println("Cond. Rigidez Torsional: No puede determinarse. No es una seccion circular tampoco puede connsiderarse una seccion abierta de paredes delgadas para aplicar la teoria de Saint Venant");
     }
