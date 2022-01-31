@@ -11,20 +11,20 @@ public class IPNDobleT extends Vigas{
     }
 
     @Override
-    public void area() {
-        area = 39.5F;
-        System.out.println("Area: " + area + "cm2");
+    public float area() {
+        return area = 39.5F;
+
     }
 
     @Override
-    public void Baricentro() {
+    public void baricentro() {
         System.out.println("Baricentro: al ser doblemente simetrica este se encuentra en el centro de la seccion");
         System.out.println("Tomando como referencia el extremo izquierdo de la seccion con una terna X e Y: X= " + ancho/2 + "cm; Y= " + altura/2 + "cm");
 
     }
 
     @Override
-    public void MomentosDeInercia() {
+    public void momentosDeInercia() {
         Jy = 3060F;
         Jz = 162F;
         System.out.println("Jy = " + Jy + "cm4");
@@ -33,25 +33,21 @@ public class IPNDobleT extends Vigas{
     }
 
     @Override
-    public void MomentosPolarDeInercia() {
-    }
-
-    @Override
-    public void RigidezAxial() {
+    public void rigidezAxial() {
         int RigidezAxil;
-        RigidezAxil = (int) ((E * area) / largo);
+        RigidezAxil = (int) ((E * area()) / largo);
         System.out.println("Rigidez Axial = " + RigidezAxil);
     }
 
     @Override
-    public void CondicionRigidezFlexional() {
+    public void condicionRigidezFlexional() {
         int CondicionRFlexional;
         CondicionRFlexional = (int) (Jy * E);
         System.out.println("CondicionRFlexional = " + CondicionRFlexional);
     }
 
     @Override
-    public void CondicionRigidezTorsional() {
+    public void condicionRigidezTorsional() {
 
     }
 

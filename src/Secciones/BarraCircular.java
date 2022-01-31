@@ -9,40 +9,40 @@ public class BarraCircular extends Vigas {
     }
 
     @Override
-    public void area(){
-        area = (float) (3.14 * radio * radio);
-        System.out.println("Area: " + area);
+    public float area(){
+        return area = (float) (3.14 * radio * radio);
+
     }
 
-    public void Baricentro(){
+    public void baricentro(){
         System.out.println("Baricentro: al tener simetria polar, este se encuentra en el centro de la seccion");
     }
 
     @Override
-    public void MomentosDeInercia() {
+    public void momentosDeInercia() {
     }
 
-    public void  MomentosPolarDeInercia(){
+    public void momentosPolarDeInercia(){
         Jp = (float) ((Math.PI * radio * radio * radio * radio)/4);
         System.out.println("Jp: " + Jp + "cm4");
     }
 
-    public void RigidezAxial(){
-        int Rigidez;
-        Rigidez = (int) ((E * area)/largo);
-        System.out.println("Rigidez Axial = " + Rigidez);
+    public void rigidezAxial(){
+        int rigidez;
+        rigidez = (int) ((E * area())/largo);
+        System.out.println("Rigidez Axial = " + rigidez);
     }
 
-    public void CondicionRigidezFlexional() {
-        int CondicionRF;
-        CondicionRF = (int) (Jp * E);
-        System.out.println("Condicion de Rigidez Flexional = " + CondicionRF);
+    public void condicionRigidezFlexional() {
+        int condicionRF;
+        condicionRF = (int) (Jp * E);
+        System.out.println("Condicion de Rigidez Flexional = " + condicionRF);
     }
 
-    public void CondicionRigidezTorsional(){
-        int CondcionRT;
-        CondcionRT = (int) (Jp * G);
-        System.out.println("Condcion de Rigidez Torsional = " + CondcionRT);
+    public void condicionRigidezTorsional(){
+        int condcionRT;
+        condcionRT = (int) (Jp * G);
+        System.out.println("Condcion de Rigidez Torsional = " + condcionRT);
     }
 
 

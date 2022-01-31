@@ -1,7 +1,5 @@
 package Secciones;
 
-import com.sun.javafx.collections.FloatArraySyncer;
-
 public abstract class Vigas {
     protected float altura;
     protected float ancho;
@@ -12,7 +10,7 @@ public abstract class Vigas {
     protected float Jy;
     protected float Jz;
     protected float Jp;
-    protected float area;
+    public float area;
 
 
 
@@ -32,19 +30,17 @@ public abstract class Vigas {
     }
 
 
-    public abstract void area();
+    public abstract float area();
 
-    public abstract void Baricentro();
+    public abstract void baricentro();
 
-    public abstract void MomentosDeInercia();
+    public abstract void momentosDeInercia();
 
-    public abstract void MomentosPolarDeInercia();
+    public abstract void rigidezAxial();
 
-    public abstract void RigidezAxial();
+    public abstract void condicionRigidezFlexional();
 
-    public abstract void CondicionRigidezFlexional();
-
-    public abstract void CondicionRigidezTorsional();
+    public abstract void condicionRigidezTorsional();
 
 }
 
