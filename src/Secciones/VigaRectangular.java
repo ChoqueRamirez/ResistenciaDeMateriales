@@ -36,22 +36,23 @@ public class VigaRectangular extends Vigas{
     }
 
     @Override
-    public void rigidezAxial() {
+    public float rigidezAxial() {
         int RigidezAxial;
-        RigidezAxial = (int) ((E * area()) / largo);
-        System.out.println("Rigidez Axial = " + RigidezAxial);
+        return RigidezAxial = (int) ((E * area()) / largo);
+
     }
 
     @Override
-    public void condicionRigidezFlexional(){
-        int CondicionRFlexional;
-        CondicionRFlexional = (int) (Jy * E);
-        System.out.println("CondicionRFlexional = " + CondicionRFlexional);
+    public float condicionRigidezFlexional(){
+        int condicionRFlexional;
+        return condicionRFlexional = (int) (Jy * E);
+
     }
 
     @Override
-    public void condicionRigidezTorsional(){
-        System.out.println("Cond. Rigidez Torsional: No puede determinarse. No es una seccion circular tampoco puede connsiderarse una seccion abierta de paredes delgadas para aplicar la teoria de Saint Venant");
+    public float condicionRigidezTorsional(){
+        int condicionRTorsional;
+        return condicionRTorsional = 0;
     }
 
 

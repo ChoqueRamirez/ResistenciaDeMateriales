@@ -33,22 +33,22 @@ public class IPNDobleT extends Vigas{
     }
 
     @Override
-    public void rigidezAxial() {
+    public float rigidezAxial() {
         int RigidezAxil;
-        RigidezAxil = (int) ((E * area()) / largo);
-        System.out.println("Rigidez Axial = " + RigidezAxil);
+        return RigidezAxil = (int) ((E * area()) / largo);
     }
 
     @Override
-    public void condicionRigidezFlexional() {
+    public float condicionRigidezFlexional() {
         int CondicionRFlexional;
-        CondicionRFlexional = (int) (Jy * E);
-        System.out.println("CondicionRFlexional = " + CondicionRFlexional);
+        return CondicionRFlexional = (int) (Jy * E);
+
     }
 
     @Override
-    public void condicionRigidezTorsional() {
-
+    public float condicionRigidezTorsional() {
+        float condicionRTorsional;
+        return condicionRTorsional = 0;
     }
 
 }

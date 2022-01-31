@@ -36,11 +36,11 @@ public abstract class Vigas {
 
     public abstract void momentosDeInercia();
 
-    public abstract void rigidezAxial();
+    public abstract float rigidezAxial();
 
-    public abstract void condicionRigidezFlexional();
+    public abstract float condicionRigidezFlexional();
 
-    public abstract void condicionRigidezTorsional();
+    public abstract float condicionRigidezTorsional();
 
 }
 

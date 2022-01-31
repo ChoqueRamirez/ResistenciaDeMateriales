@@ -27,22 +27,22 @@ public class BarraCircular extends Vigas {
         System.out.println("Jp: " + Jp + "cm4");
     }
 
-    public void rigidezAxial(){
+    public float rigidezAxial(){
         int rigidez;
-        rigidez = (int) ((E * area())/largo);
-        System.out.println("Rigidez Axial = " + rigidez);
+        return rigidez = (int) ((E * area())/largo);
+
     }
 
-    public void condicionRigidezFlexional() {
+    public float condicionRigidezFlexional() {
         int condicionRF;
-        condicionRF = (int) (Jp * E);
-        System.out.println("Condicion de Rigidez Flexional = " + condicionRF);
+        return condicionRF = (int) (Jp * E);
+
     }
 
-    public void condicionRigidezTorsional(){
+    public float condicionRigidezTorsional(){
         int condcionRT;
-        condcionRT = (int) (Jp * G);
-        System.out.println("Condcion de Rigidez Torsional = " + condcionRT);
+        return condcionRT = (int) (Jp * G);
+
     }
 
 
