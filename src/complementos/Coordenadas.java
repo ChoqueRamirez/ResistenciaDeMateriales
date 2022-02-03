@@ -1,4 +1,4 @@
-package Complementos;
+package complementos;
 
 public class Coordenadas {
     protected final float coordenadaEnX;

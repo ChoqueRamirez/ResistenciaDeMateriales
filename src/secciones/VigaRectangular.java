@@ -1,11 +1,10 @@
-package Secciones;
+package secciones;
 
 
-import Complementos.Coordenadas;
+import complementos.Coordenadas;
 
 public class VigaRectangular extends Vigas{
 
-    float coordenadaEnX;
 
     public VigaRectangular(float altura, float ancho, float largo, int E, int G){
         super(altura, ancho, largo, E, G);
@@ -54,6 +53,12 @@ public class VigaRectangular extends Vigas{
         int condicionRTorsional;
         return condicionRTorsional = 0;
     }
+
+    public float getLargo() {
+        return largo;
+    }
+
+
 
 
 }

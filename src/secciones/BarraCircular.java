@@ -1,4 +1,4 @@
-package Secciones;
+package secciones;
 
 public class BarraCircular extends Vigas {
 
