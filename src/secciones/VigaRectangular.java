@@ -54,11 +54,22 @@ public class VigaRectangular extends Vigas{
         return condicionRTorsional = 0;
     }
 
+
+
     public float getLargo() {
         return largo;
     }
 
+    public float getJy() {
+        return Jy;
+    }
 
-
+    public float getJz() {
+        return Jz;
+    }
 
 }
+
+
+
+

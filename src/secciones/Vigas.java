@@ -58,5 +58,17 @@ public abstract class Vigas {
     public float getRadio() {
         return radio;
     }
+
+    public float getJy() {
+        return Jy;
+    }
+
+    public float getJz() {
+        return Jz;
+    }
+
+    public float getJp() {
+        return Jp;
+    }
 }
 
