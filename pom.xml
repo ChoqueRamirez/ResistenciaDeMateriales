@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>groupId</groupId>
+    <artifactId>ResistenciaDeMateriales</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+
+    <!--
+        Este archivo es utilizada por maven que es el gestor de dependencias
+        Maven te permite hacer muchísimas cosas, pero una de las más importante es que te permite bajar dependencias
+        Esto significa que cuando quieras alguna biblioteca de un tercero, en <dependencies></dependencies> metes
+        la dependencia y maven se encarga de buscarla e instalartela en tu proyecto. Si esa dependnecia que instalaste
+        necesita otras dependencias, también las va a buscar. Por ende, vos no tenees que hacer nada.
+        Las dependencias públicas de maven se encuentran en https://mvnrepository.com/, ahí estan las más conocidas.
+        Vos en un futuro podrías tranquilamente hacer una aplicación y subirla a maven para que los demas la usen
+        (o a algun otro repositorio)
+        Yo te puse la dependencia de junit que te permite hacer test con java. Lo que hice simplemente fue agregar
+        la carpeta "test" a la altura de la carpeta "src" y luego en el intellij puse Botón derecho en el proyecto
+        "ResistenciaDeMateriales" -> Add Framework Support -> Maven. Eso lo que hace es que el intellij te crea automá
+        ticamente un archivo pom.xml para que no lo tengas que crear vos, pero tranquilamente podrías haberlo creado
+        a mano. La dependencia la google como "junit maven dependency" y el primer link que te sale es este
+        https://mvnrepository.com/artifact/junit/junit donde te dice que copies el código ese, y lo pegue en
+        <dependencies></dependencies>
+    -->
+
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/junit/junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+</project>
