@@ -1,4 +1,4 @@
-package Secciones;
+package secciones;
 
 public abstract class Vigas {
     protected float altura;
@@ -10,7 +10,8 @@ public abstract class Vigas {
     protected float Jy;
     protected float Jz;
     protected float Jp;
-    public float area;
+    protected float area;
+
 
 
 
@@ -42,5 +43,32 @@ public abstract class Vigas {
 
     public abstract float condicionRigidezTorsional();
 
+    public float getLargo() {
+        return largo;
+    }
+
+    public float getAltura() {
+        return altura;
+    }
+
+    public float getAncho() {
+        return ancho;
+    }
+
+    public float getRadio() {
+        return radio;
+    }
+
+    public float getJy() {
+        return Jy;
+    }
+
+    public float getJz() {
+        return Jz;
+    }
+
+    public float getJp() {
+        return Jp;
+    }
 }
 
