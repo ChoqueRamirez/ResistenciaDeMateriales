@@ -7,12 +7,6 @@ public abstract class Vigas {
     protected float radio;
     protected int E;
     protected int G;
-    protected float Jy;
-    protected float Jz;
-    protected float Jp;
-
-
-
 
     public Vigas(float altura, float ancho, float largo, int E, int G) {
         this.altura = altura;
@@ -30,8 +24,6 @@ public abstract class Vigas {
     }
 
 
-    public abstract float getArea();
-
     public abstract void baricentro();
 
     public abstract float momentoDeInerciaY();
@@ -44,32 +36,16 @@ public abstract class Vigas {
 
     public abstract float condicionRigidezTorsional();
 
-    public float getLargo() {
-        return largo;
-    }
+    public abstract float getArea();
 
-    public float getAltura() {
-        return altura;
-    }
+    public abstract float getLargo();
 
-    public float getAncho() {
-        return ancho;
-    }
+    public abstract float getAltura();
 
-    public float getRadio() {
-        return radio;
-    }
+    public abstract float getAncho();
 
-    public float getJy() {
-        return Jy;
-    }
 
-    public float getJz() {
-        return Jz;
-    }
 
-    public float getJp() {
-        return Jp;
-    }
+
 }
 

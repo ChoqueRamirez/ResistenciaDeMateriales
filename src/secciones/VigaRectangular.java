@@ -1,6 +1,5 @@
 package secciones;
 
-
 import complementos.Coordenadas;
 
 public class VigaRectangular extends Vigas{
@@ -11,19 +10,23 @@ public class VigaRectangular extends Vigas{
         System.out.println("Viga Rectangular - Asumimos Linealidades: estatica, cinematica y mecánica");
     }
 
-    @Override
-    public float getArea(){
-        return ancho * altura;
-    }
+
 
     @Override
     public void baricentro(){
-        Coordenadas coordenadas = new Coordenadas(ancho/2, altura/2);
+        Coordenadas coordenadas = new Coordenadas(getAncho()/2, getAltura()/2);
         System.out.println("Baricentro: al ser doblemente simetrica este se encuentra en el centro de la seccion"
         + "\n" + "Tomando como referencia el extremo izquierdo de la seccion con una terna X e Y: X= " +
         coordenadas.getCoordenadaEnX() + "cm; Y= " + coordenadas.getCoordenadaEnY() + "cm");
     }
 
+    public float coordBaricentricaEnX(){
+        return getAncho()/2;
+    }
+
+    public float coordBaricentricaEnY(){
+        return getAltura()/2;
+    }
 
 
     @Override
@@ -38,35 +41,40 @@ public class VigaRectangular extends Vigas{
 
     @Override
     public float rigidezAxial() {
-        return (int) ((E * getArea()) / largo);
-
+        return ((E * getArea()) / largo);
     }
 
     @Override
     public float condicionRigidezFlexional(){
-        return (int) (Jy * E);
-
+        return (momentoDeInerciaY() * E);
     }
 
     @Override
     public float condicionRigidezTorsional(){
-        int condicionRTorsional;
-        return condicionRTorsional = 0;
+        return 0;
     }
 
+    @Override
+    public float getArea(){
+        return ancho * altura;
+    }
 
-
+    @Override
     public float getLargo() {
         return largo;
     }
 
-    public float getJy() {
-        return Jy;
+    @Override
+    public float getAltura() {
+        return altura;
     }
 
-    public float getJz() {
-        return Jz;
+    @Override
+    public float getAncho() {
+        return ancho;
     }
+
+
 
 }
 

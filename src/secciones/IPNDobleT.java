@@ -19,14 +19,12 @@ public class IPNDobleT extends Vigas{
     @Override
     public float getArea() {
         return area;
-
     }
 
     @Override
     public void baricentro() {
         System.out.println("Baricentro: al ser doblemente simetrica este se encuentra en el centro de la seccion");
         System.out.println("Tomando como referencia el extremo izquierdo de la seccion con una terna X e Y: X= " + ancho/2 + "cm; Y= " + altura/2 + "cm");
-
     }
 
 
@@ -42,21 +40,18 @@ public class IPNDobleT extends Vigas{
 
     @Override
     public float rigidezAxial() {
-        int RigidezAxil;
-        return RigidezAxil = (int) ((E * getArea()) / largo);
+        return (int) ((E * getArea()) / largo);
     }
 
     @Override
     public float condicionRigidezFlexional() {
-        int CondicionRFlexional;
-        return CondicionRFlexional = (int) (Jy * E);
+        return (momentoDeInerciaY() * E);
 
     }
 
     @Override
     public float condicionRigidezTorsional() {
-        float condicionRTorsional;
-        return condicionRTorsional = 0;
+        return 0;
     }
 
 }

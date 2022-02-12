@@ -8,9 +8,10 @@ public class BarraCircular extends Vigas {
         System.out.println("Barra Circular - Asumimos Linealidades: estatica, cinematica y mecánica");
     }
 
+
     @Override
     public float getArea(){
-        return (float) (3.14 * radio * radio);
+        return (float) (Math.PI * radio * radio);
 
     }
 
@@ -18,11 +19,9 @@ public class BarraCircular extends Vigas {
         System.out.println("Baricentro: al tener simetria polar, este se encuentra en el centro de la seccion");
     }
 
-
-
     @Override
     public float momentoDeInerciaY(){
-        return (ancho * altura * altura * altura)/12;
+        return (radio * radio * radio * radio)/12;
     }
 
     @Override
@@ -31,27 +30,26 @@ public class BarraCircular extends Vigas {
     }
 
     public float momentosPolarDeInercia(){
-        return  (float) ((Math.PI * radio * radio * radio * radio)/4);
+        return (float) ((Math.PI * radio * radio * radio * radio)/4);
     }
 
     public float rigidezAxial(){
-        int rigidez;
-        return rigidez = (int) ((E * getArea())/largo);
+        return ((E * getArea())/largo);
 
     }
 
     public float condicionRigidezFlexional() {
-        int condicionRF;
-        return condicionRF = (int) (Jp * E);
+        return (momentosPolarDeInercia() * E);
 
     }
 
     public float condicionRigidezTorsional(){
-        int condcionRT;
-        return condcionRT = (int) (Jp * G);
+        return (momentosPolarDeInercia() * G);
 
     }
 
-
+    public float getRadio() {
+        return radio;
+    }
 
 }
