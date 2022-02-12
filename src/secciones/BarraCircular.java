@@ -9,8 +9,8 @@ public class BarraCircular extends Vigas {
     }
 
     @Override
-    public float area(){
-        return area = (float) (3.14 * radio * radio);
+    public float getArea(){
+        return (float) (3.14 * radio * radio);
 
     }
 
@@ -18,18 +18,25 @@ public class BarraCircular extends Vigas {
         System.out.println("Baricentro: al tener simetria polar, este se encuentra en el centro de la seccion");
     }
 
+
+
     @Override
-    public void momentosDeInercia() {
+    public float momentoDeInerciaY(){
+        return (ancho * altura * altura * altura)/12;
     }
 
-    public void momentosPolarDeInercia(){
-        Jp = (float) ((Math.PI * radio * radio * radio * radio)/4);
-        System.out.println("Jp: " + Jp + "cm4");
+    @Override
+    public float momentoDeInerciaZ(){
+        return (altura * ancho * ancho * ancho)/12;
+    }
+
+    public float momentosPolarDeInercia(){
+        return  (float) ((Math.PI * radio * radio * radio * radio)/4);
     }
 
     public float rigidezAxial(){
         int rigidez;
-        return rigidez = (int) ((E * area())/largo);
+        return rigidez = (int) ((E * getArea())/largo);
 
     }
 

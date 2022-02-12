@@ -10,7 +10,6 @@ public abstract class Vigas {
     protected float Jy;
     protected float Jz;
     protected float Jp;
-    protected float area;
 
 
 
@@ -31,11 +30,13 @@ public abstract class Vigas {
     }
 
 
-    public abstract float area();
+    public abstract float getArea();
 
     public abstract void baricentro();
 
-    public abstract void momentosDeInercia();
+    public abstract float momentoDeInerciaY();
+
+    public abstract float momentoDeInerciaZ();
 
     public abstract float rigidezAxial();
 

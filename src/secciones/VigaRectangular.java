@@ -12,13 +12,12 @@ public class VigaRectangular extends Vigas{
     }
 
     @Override
-    public float area(){
-        return area = ancho * altura;
+    public float getArea(){
+        return ancho * altura;
     }
 
     @Override
     public void baricentro(){
-
         Coordenadas coordenadas = new Coordenadas(ancho/2, altura/2);
         System.out.println("Baricentro: al ser doblemente simetrica este se encuentra en el centro de la seccion"
         + "\n" + "Tomando como referencia el extremo izquierdo de la seccion con una terna X e Y: X= " +
@@ -26,25 +25,26 @@ public class VigaRectangular extends Vigas{
     }
 
 
+
     @Override
-    public void momentosDeInercia(){
-        Jy = (ancho * altura * altura * altura)/12;
-        Jz = (altura * ancho * ancho * ancho)/12;
-        System.out.println("Jy: " + Jy + " cm4");
-        System.out.println("Jz: " + Jz + " cm4");
+    public float momentoDeInerciaY(){
+        return (ancho * altura * altura * altura)/12;
+    }
+
+    @Override
+    public float momentoDeInerciaZ(){
+        return (altura * ancho * ancho * ancho)/12;
     }
 
     @Override
     public float rigidezAxial() {
-        int RigidezAxial;
-        return RigidezAxial = (int) ((E * area()) / largo);
+        return (int) ((E * getArea()) / largo);
 
     }
 
     @Override
     public float condicionRigidezFlexional(){
-        int condicionRFlexional;
-        return condicionRFlexional = (int) (Jy * E);
+        return (int) (Jy * E);
 
     }
 

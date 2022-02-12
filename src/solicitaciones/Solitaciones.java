@@ -1,6 +1,5 @@
 package solicitaciones;
 
-import secciones.VigaRectangular;
 import secciones.Vigas;
 
 public class Solitaciones {
@@ -17,13 +16,11 @@ public class Solitaciones {
     }
 
     public float solicitacionAxil(Vigas vigaASolicitar){
-        float tensionNormalAxil;
-        return tensionNormalAxil = fuerza/vigaASolicitar.area();
+        return fuerza/vigaASolicitar.getArea();
     }
 
     public float solicitacionAFlexion(Vigas vigaAsolicitar){
-        float tensionFlexion;
-        return tensionFlexion = (fuerza* vigaAsolicitar.getAltura()/2)/vigaAsolicitar.getJy();
+        return  (fuerza* vigaAsolicitar.getAltura()/2)/vigaAsolicitar.momentoDeInerciaY();
     }
 
 

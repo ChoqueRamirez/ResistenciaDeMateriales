@@ -7,10 +7,7 @@ public class Main {
     public static void main(String[] args) {
         VigaRectangular v1 = new VigaRectangular(20, 10, 500, 210, 80);
         v1.baricentro();
-        v1.momentosDeInercia();
-        v1.rigidezAxial();
-        v1.condicionRigidezFlexional();
-        v1.condicionRigidezTorsional();
+
 
         Apoyos vf = new Apoyos(2, "Fijo", 0);
         Apoyos vm = new Apoyos(1 , "Móvil", v1.getLargo());

@@ -3,16 +3,22 @@ package secciones;
 public class IPNDobleT extends Vigas{
 
     private final String designacion;
+    private float area;
+    private float Jy;
+    private float Jz;
 
-    public IPNDobleT(float altura, float ancho, float largo, int E, int G, String designacion) {
+    public IPNDobleT(float altura, float ancho, float area, float largo, float Jy, float Jz, int E, int G, String designacion) {
         super(altura, ancho, largo, E, G);
+        this.area = area;
         this.designacion = designacion;
+        this.Jy = Jy;
+        this.Jz = Jz;
         System.out.println("Perfil Doble T - IPN. Se encuentra tabulado");
     }
 
     @Override
-    public float area() {
-        return area = 39.5F;
+    public float getArea() {
+        return area;
 
     }
 
@@ -23,19 +29,21 @@ public class IPNDobleT extends Vigas{
 
     }
 
-    @Override
-    public void momentosDeInercia() {
-        Jy = 3060F;
-        Jz = 162F;
-        System.out.println("Jy = " + Jy + "cm4");
-        System.out.println("Jz = " + Jz + "cm4");
 
+    @Override
+    public float momentoDeInerciaY(){
+        return (ancho * altura * altura * altura)/12;
+    }
+
+    @Override
+    public float momentoDeInerciaZ(){
+        return (altura * ancho * ancho * ancho)/12;
     }
 
     @Override
     public float rigidezAxial() {
         int RigidezAxil;
-        return RigidezAxil = (int) ((E * area()) / largo);
+        return RigidezAxil = (int) ((E * getArea()) / largo);
     }
 
     @Override
