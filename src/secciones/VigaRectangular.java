@@ -14,10 +14,9 @@ public class VigaRectangular extends Vigas{
 
     @Override
     public void baricentro(){
-        Coordenadas coordenadas = new Coordenadas(getAncho()/2, getAltura()/2);
         System.out.println("Baricentro: al ser doblemente simetrica este se encuentra en el centro de la seccion"
         + "\n" + "Tomando como referencia el extremo izquierdo de la seccion con una terna X e Y: X= " +
-        coordenadas.getCoordenadaEnX() + "cm; Y= " + coordenadas.getCoordenadaEnY() + "cm");
+        coordBaricentricaEnX() + "cm; Y= " + coordBaricentricaEnY() + "cm");
     }
 
     public float coordBaricentricaEnX(){
@@ -27,7 +26,6 @@ public class VigaRectangular extends Vigas{
     public float coordBaricentricaEnY(){
         return getAltura()/2;
     }
-
 
     @Override
     public float momentoDeInerciaY(){

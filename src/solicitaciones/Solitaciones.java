@@ -23,6 +23,8 @@ public class Solitaciones {
         return  (fuerza* vigaAsolicitar.getAltura()/2)/vigaAsolicitar.momentoDeInerciaY();
     }
 
+    
+
 
 
 

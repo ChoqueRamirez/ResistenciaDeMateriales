@@ -16,26 +16,29 @@ public class IPNDobleT extends Vigas{
         System.out.println("Perfil Doble T - IPN. Se encuentra tabulado");
     }
 
-    @Override
-    public float getArea() {
-        return area;
-    }
 
     @Override
     public void baricentro() {
         System.out.println("Baricentro: al ser doblemente simetrica este se encuentra en el centro de la seccion");
-        System.out.println("Tomando como referencia el extremo izquierdo de la seccion con una terna X e Y: X= " + ancho/2 + "cm; Y= " + altura/2 + "cm");
+        System.out.println("Tomando como referencia el extremo izquierdo de la seccion con una terna X e Y: X= " +coordBaricentricaEnX() + "cm; Y= " + coordBaricentricaEnY() + "cm");
     }
 
+    public float coordBaricentricaEnX(){
+        return getAncho()/2;
+    }
+
+    public float coordBaricentricaEnY(){
+        return getAltura()/2;
+    }
 
     @Override
     public float momentoDeInerciaY(){
-        return (ancho * altura * altura * altura)/12;
+        return Jy;
     }
 
     @Override
     public float momentoDeInerciaZ(){
-        return (altura * ancho * ancho * ancho)/12;
+        return Jz;
     }
 
     @Override
@@ -46,12 +49,31 @@ public class IPNDobleT extends Vigas{
     @Override
     public float condicionRigidezFlexional() {
         return (momentoDeInerciaY() * E);
-
     }
 
     @Override
     public float condicionRigidezTorsional() {
         return 0;
+    }
+
+    @Override
+    public float getArea() {
+        return area;
+    }
+
+    @Override
+    public float getLargo() {
+        return largo;
+    }
+
+    @Override
+    public float getAltura() {
+        return altura;
+    }
+
+    @Override
+    public float getAncho() {
+        return ancho;
     }
 
 }
