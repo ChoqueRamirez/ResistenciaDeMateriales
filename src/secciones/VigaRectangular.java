@@ -38,6 +38,15 @@ public class VigaRectangular extends Vigas{
     }
 
     @Override
+    public float momentosPolarDeInercia(){
+        if(radio != 0){
+            return (float) ((Math.PI * radio * radio * radio * radio)/4);
+        }else{
+            return 0;
+        }
+    }
+
+    @Override
     public float rigidezAxial() {
         return ((E * getArea()) / largo);
     }
@@ -70,6 +79,11 @@ public class VigaRectangular extends Vigas{
     @Override
     public float getAncho() {
         return ancho;
+    }
+
+    @Override
+    public float getRadio(){
+        return radio;
     }
 
 

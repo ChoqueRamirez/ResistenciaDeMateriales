@@ -24,10 +24,10 @@ public class BarraCircular extends Vigas {
         return (radio * radio * radio * radio)/12;
     }
 
+    @Override
     public float momentosPolarDeInercia(){
         return (float) ((Math.PI * radio * radio * radio * radio)/4);
     }
-
 
     public float rigidezAxial(){
         return ((E * getArea())/largo);
@@ -47,10 +47,6 @@ public class BarraCircular extends Vigas {
     }
 
 
-    public float getRadio() {
-        return radio;
-    }
-
     @Override
     public float getLargo() {
         return largo;
@@ -64,6 +60,11 @@ public class BarraCircular extends Vigas {
     @Override
     public float getAncho() {
         return ancho;
+    }
+
+    @Override
+    public float getRadio(){
+        return radio;
     }
 
 }

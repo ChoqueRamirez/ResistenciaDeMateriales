@@ -1,5 +1,6 @@
 package solicitaciones;
 
+import secciones.BarraCircular;
 import secciones.Vigas;
 
 public class Solitaciones {
@@ -12,7 +13,6 @@ public class Solitaciones {
         this.fuerza = fuerza;
         this.unidad = unidad;
         this.dirrecion = dirrecion;
-
     }
 
     public float solicitacionAxil(Vigas vigaASolicitar){
@@ -23,10 +23,13 @@ public class Solitaciones {
         return  (fuerza* vigaAsolicitar.getAltura()/2)/vigaAsolicitar.momentoDeInerciaY();
     }
 
-    
-
-
-
-
-
+    public float solicitacionTorsional(BarraCircular vigaAsolicitar) {
+        if (vigaAsolicitar.getRadio() != 0) {
+            return (fuerza * vigaAsolicitar.getRadio()) / vigaAsolicitar.momentosPolarDeInercia();
+        } else if (vigaAsolicitar.getRadio() == 0) {
+            return fuerza/(2*vigaAsolicitar.constanteDeTorsion*vigaAsolicitar.getEspesor);
+        }else{
+            return 0;
+        }
+    }
 }

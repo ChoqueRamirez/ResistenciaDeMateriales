@@ -30,6 +30,8 @@ public abstract class Vigas {
 
     public abstract float momentoDeInerciaZ();
 
+    public abstract float momentosPolarDeInercia();
+
     public abstract float rigidezAxial();
 
     public abstract float condicionRigidezFlexional();
@@ -43,6 +45,8 @@ public abstract class Vigas {
     public abstract float getAltura();
 
     public abstract float getAncho();
+
+    public abstract float getRadio();
 
 
 
