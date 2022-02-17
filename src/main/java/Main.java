@@ -95,5 +95,30 @@ public class Main {
 //        v3.rigidezAxial();
 //        v3.condicionRigidezFlexional();
 
+
+        List<Repartidor> repartidores = new LinkedList<>();
+
+        Repartidor juan = new Repartidor("juan", 40d, 60d);
+        repartidores.add(juan);
+
+
+        List<Producto> productoList = new ArrayList<>();
+        productoList.add(new Producto("Hamburguesa"));
+        productoList.add(new Producto("Coca"));
+
+        List<Pedido> pedidos = new LinkedList<>();
+
+        Pedido pedido = new Pedido(productoList, 20d, 70d);
+        Pedido pedido2 = new Pedido(productoList, 50d, 80d);
+
+        pedidos.add(pedido);
+        pedidos.add(pedido2);
+
+        for(Repartidor repartidor : repartidores){
+            repartidor.asignarPedido(pedidos);
+        }
+
+        List<Pedido> pedidosDeJuan = juan.quePedidosTenes();
+        System.out.println(pedidosDeJuan);
     }
 }
