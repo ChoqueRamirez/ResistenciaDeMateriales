@@ -1,16 +1,15 @@
 package secciones;
 
-import complementos.Coordenadas;
-
 public class VigaRectangular extends Vigas{
 
-
     public VigaRectangular(float altura, float ancho, float largo, int E, int G){
-        super(altura, ancho, largo, E, G);
+        this.altura = altura;
+        this.ancho = ancho;
+        this.largo = largo;
+        this.E = E;
+        this.G = G;
         System.out.println("Viga Rectangular - Asumimos Linealidades: estatica, cinematica y mecánica");
     }
-
-
 
     @Override
     public void baricentro(){
@@ -40,16 +39,6 @@ public class VigaRectangular extends Vigas{
     }
 
     @Override
-    public float momentosPolarDeInercia(){
-        if(radio != 0){
-            return (float) ((Math.PI * radio * radio * radio * radio)/4);
-        }else{
-            return 0;
-        }
-    }
-
-
-    @Override
     public float getArea(){
         return ancho * altura;
     }
@@ -70,12 +59,14 @@ public class VigaRectangular extends Vigas{
     }
 
     @Override
-    public float getRadio(){
-        return radio;
+    public float solicitacionTorsional(float fuerza, String unidad, String dirrecion) {
+        return 0;
     }
 
-
-
+    @Override
+    public float solicitacionAFlexion(float fuerza, final String unidad, final String direccion) {
+        return  (fuerza * altura / 2 ) / momentoDeInerciaY();
+    }
 }
 
 

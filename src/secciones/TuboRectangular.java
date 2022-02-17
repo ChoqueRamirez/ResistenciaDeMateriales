@@ -2,11 +2,15 @@ package secciones;
 
 public class TuboRectangular extends Vigas{
 
-    private float espesor1;
-    private float espesor2;
+    private final float espesor1;
+    private final float espesor2;
 
     public TuboRectangular(float ancho, float espesor1, float altura, float espesor2,  float largo, int E, int G) {
-        super(altura, ancho, largo, E, G);
+        this.altura = altura;
+        this.ancho = ancho;
+        this.largo = largo;
+        this.E = E;
+        this.G = G;
         this.espesor1 = espesor1;
         this.espesor2 = espesor2;
     }
@@ -38,15 +42,6 @@ public class TuboRectangular extends Vigas{
         return 0;
     }
 
-    @Override
-    public float momentosPolarDeInercia() {
-        if(radio != 0){
-            return (float) ((Math.PI * radio * radio * radio * radio)/4);
-        }else{
-            return 0;
-        }
-    }
-
     public float constanteDeTorsion(){
         return (ancho-espesor1)*(altura-espesor2);
     }
@@ -72,8 +67,8 @@ public class TuboRectangular extends Vigas{
     }
 
     @Override
-    public float getRadio() {
-        return radio;
+    public float solicitacionTorsional(float fuerza, String unidad, String dirrecion) {
+        return fuerza/(2 * constanteDeTorsion() * espesor1);
     }
 
     public float getEspesor1() {
@@ -82,5 +77,10 @@ public class TuboRectangular extends Vigas{
 
     public float getEspesor2() {
         return espesor2;
+    }
+
+    @Override
+    public float solicitacionAFlexion(float fuerza, final String unidad, final String direccion) {
+        return  (fuerza * altura / 2 ) / momentoDeInerciaY();
     }
 }

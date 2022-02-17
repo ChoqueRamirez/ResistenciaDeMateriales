@@ -2,9 +2,13 @@ package secciones;
 
 public class BarraCircular extends Vigas {
 
+    private final float radio;
 
     public BarraCircular(float radio, float largo, int E, int G){
-        super(radio, largo, E, G);
+        this.radio = radio;
+        this.largo = largo;
+        this.E = E;
+        this.G = G;
         System.out.println("Barra Circular - Asumimos Linealidades: estatica, cinematica y mecánica");
     }
 
@@ -26,7 +30,7 @@ public class BarraCircular extends Vigas {
 
     @Override
     public float momentoDeInerciaY(){
-        return (radio * radio * radio * radio)/12;
+        return (radio * radio * radio * radio) / 12;
     }
 
     @Override
@@ -34,7 +38,6 @@ public class BarraCircular extends Vigas {
         return (radio * radio * radio * radio)/12;
     }
 
-    @Override
     public float momentosPolarDeInercia(){
         return (float) ((Math.PI * radio * radio * radio * radio)/4);
     }
@@ -61,8 +64,17 @@ public class BarraCircular extends Vigas {
     }
 
     @Override
+    public float solicitacionTorsional(float fuerza, String unidad, String dirrecion) {
+        return (fuerza * radio) / momentosPolarDeInercia();
+    }
+
     public float getRadio(){
         return radio;
+    }
+
+    @Override
+    public float solicitacionAFlexion(float fuerza, final String unidad, final String direccion) {
+        return  (fuerza * radio) / momentoDeInerciaY();
     }
 
 }

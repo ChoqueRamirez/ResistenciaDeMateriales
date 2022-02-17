@@ -4,25 +4,14 @@ public abstract class Vigas {
     protected float altura;
     protected float ancho;
     protected float largo;
-    protected float radio;
     protected int E;
     protected int G;
 
-    public Vigas(float altura, float ancho, float largo, int E, int G) {
-        this.altura = altura;
-        this.ancho = ancho;
-        this.largo = largo;
-        this.E = E;
-        this.G = G;
+    public float solicitacionAxil(float fuerza, final String unidad, final String direccion){
+        return fuerza / getArea();
     }
 
-    public Vigas(float radio, float largo , int E, int G) {
-        this.radio = radio;
-        this.largo = largo;
-        this.E = E;
-        this.G = G;
-    }
-
+    public abstract float solicitacionAFlexion(float fuerza, final String unidad, final String direccion);
 
     public abstract void baricentro();
 
@@ -34,8 +23,6 @@ public abstract class Vigas {
 
     public abstract float momentoDeInerciaZ();
 
-    public abstract float momentosPolarDeInercia();
-
     public abstract float getArea();
 
     public abstract float getLargo();
@@ -44,10 +31,7 @@ public abstract class Vigas {
 
     public abstract float getAncho();
 
-    public abstract float getRadio();
-
-
-
+    public abstract float solicitacionTorsional(float fuerza, String unidad, String dirrecion);
 
 }
 

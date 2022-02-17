@@ -8,7 +8,11 @@ public class IPNDobleT extends Vigas{
     private float Jz;
 
     public IPNDobleT(float altura, float ancho, float area, float largo, float Jy, float Jz, int E, int G, String designacion) {
-        super(altura, ancho, largo, E, G);
+        this.altura = altura;
+        this.ancho = ancho;
+        this.largo = largo;
+        this.E = E;
+        this.G = G;
         this.area = area;
         this.designacion = designacion;
         this.Jy = Jy;
@@ -44,15 +48,6 @@ public class IPNDobleT extends Vigas{
     }
 
     @Override
-    public float momentosPolarDeInercia(){
-        if(radio != 0){
-            return (float) ((Math.PI * radio * radio * radio * radio)/4);
-        }else{
-            return 0;
-        }
-    }
-
-    @Override
     public float getArea() {
         return area;
     }
@@ -73,8 +68,14 @@ public class IPNDobleT extends Vigas{
     }
 
     @Override
-    public float getRadio(){
-        return radio;
+    public float solicitacionAFlexion(float fuerza, final String unidad, final String direccion) {
+        return  (fuerza * altura / 2 ) / momentoDeInerciaY();
+    }
+
+    @Override
+    public float solicitacionTorsional(float fuerza, String unidad, String dirrecion) {
+        // falta agregar la formula
+        return 0;
     }
 
 }
