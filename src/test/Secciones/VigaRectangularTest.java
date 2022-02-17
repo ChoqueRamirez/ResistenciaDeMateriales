@@ -1,5 +1,6 @@
 package Secciones;
 
+import exceptions.VigaConLargoIndefinidoException;
 import org.junit.Assert;
 import org.junit.Test;
 import secciones.VigaRectangular;
@@ -12,6 +13,11 @@ public class VigaRectangularTest {
         float realArea = vigaRectangular.getArea();
         float expectedArea = 100f;
         Assert.assertEquals(expectedArea, realArea, 0.1);
+    }
+
+    @Test(expected = VigaConLargoIndefinidoException.class)
+    public void largo_de_viga_negativo_deberia_tirar_un_error() {
+        VigaRectangular vigaRectangular = new VigaRectangular(10f, 10f, -5f, 0, 0);
     }
 
     // me gustaría que hagas el test para que cuando creo una viga de dimensiones negativas
