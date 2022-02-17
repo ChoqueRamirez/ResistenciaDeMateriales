@@ -1,18 +1,14 @@
 package secciones;
 
-public class IPNDobleT extends Vigas{
+public class IPNDobleT extends VigasConAlturaYAncho {
 
     private final String designacion;
-    private float area;
-    private float Jy;
-    private float Jz;
+    private final float area;
+    private final float Jy;
+    private final float Jz;
 
     public IPNDobleT(float altura, float ancho, float area, float largo, float Jy, float Jz, int E, int G, String designacion) {
-        this.altura = altura;
-        this.ancho = ancho;
-        this.largo = largo;
-        this.E = E;
-        this.G = G;
+        super(altura, ancho, largo, E, G);
         this.area = area;
         this.designacion = designacion;
         this.Jy = Jy;

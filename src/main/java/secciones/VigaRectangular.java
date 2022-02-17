@@ -1,13 +1,9 @@
 package secciones;
 
-public class VigaRectangular extends Vigas{
+public class VigaRectangular extends VigasConAlturaYAncho {
 
     public VigaRectangular(float altura, float ancho, float largo, int E, int G){
-        this.altura = altura;
-        this.ancho = ancho;
-        this.largo = largo;
-        this.E = E;
-        this.G = G;
+        super(altura, ancho, largo, E, G);
         System.out.println("Viga Rectangular - Asumimos Linealidades: estatica, cinematica y mecánica");
     }
 
@@ -30,7 +26,7 @@ public class VigaRectangular extends Vigas{
 
     @Override
     public float momentoDeInerciaY(){
-        return (ancho * altura * altura * altura)/12;
+        return (float) ((ancho * Math.pow(altura, 3))/12);
     }
 
     @Override

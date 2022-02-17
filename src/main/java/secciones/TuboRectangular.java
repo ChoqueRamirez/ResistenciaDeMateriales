@@ -1,16 +1,12 @@
 package secciones;
 
-public class TuboRectangular extends Vigas{
+public class TuboRectangular extends VigasConAlturaYAncho {
 
     private final float espesor1;
     private final float espesor2;
 
     public TuboRectangular(float ancho, float espesor1, float altura, float espesor2,  float largo, int E, int G) {
-        this.altura = altura;
-        this.ancho = ancho;
-        this.largo = largo;
-        this.E = E;
-        this.G = G;
+        super(altura, ancho, largo, E, G);
         this.espesor1 = espesor1;
         this.espesor2 = espesor2;
     }

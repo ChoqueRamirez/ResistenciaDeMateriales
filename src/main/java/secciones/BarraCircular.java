@@ -1,14 +1,12 @@
 package secciones;
 
-public class BarraCircular extends Vigas {
+public class BarraCircular extends Vigas{
 
     private final float radio;
 
     public BarraCircular(float radio, float largo, int E, int G){
+        super(largo, E, G);
         this.radio = radio;
-        this.largo = largo;
-        this.E = E;
-        this.G = G;
         System.out.println("Barra Circular - Asumimos Linealidades: estatica, cinematica y mecánica");
     }
 
@@ -51,16 +49,6 @@ public class BarraCircular extends Vigas {
     @Override
     public float getLargo() {
         return largo;
-    }
-
-    @Override
-    public float getAltura() {
-        return altura;
-    }
-
-    @Override
-    public float getAncho() {
-        return ancho;
     }
 
     @Override
