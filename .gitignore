@@ -1,5 +1,7 @@
 .idea/*
-target/
+
 out/
 
 ResistenciaDeMateriales.iml
+
+target
