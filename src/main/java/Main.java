@@ -1,7 +1,6 @@
 import complementos.Apoyos;
 import secciones.*;
 
-
 public class Main {
     public static void main(String[] args) {
         VigaRectangular v1 = new VigaRectangular(20, 10, 500, 210, 80);
