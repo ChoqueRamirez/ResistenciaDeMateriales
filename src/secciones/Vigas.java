@@ -26,6 +26,10 @@ public abstract class Vigas {
 
     public abstract void baricentro();
 
+    public abstract float coordBaricentricaEnX();
+
+    public abstract float coordBaricentricaEnY();
+
     public abstract float momentoDeInerciaY();
 
     public abstract float momentoDeInerciaZ();

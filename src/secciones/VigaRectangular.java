@@ -19,10 +19,12 @@ public class VigaRectangular extends Vigas{
         coordBaricentricaEnX() + "cm; Y= " + coordBaricentricaEnY() + "cm");
     }
 
+    @Override
     public float coordBaricentricaEnX(){
         return getAncho()/2;
     }
 
+    @Override
     public float coordBaricentricaEnY(){
         return getAltura()/2;
     }

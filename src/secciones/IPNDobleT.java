@@ -23,10 +23,12 @@ public class IPNDobleT extends Vigas{
         System.out.println("Tomando como referencia el extremo izquierdo de la seccion con una terna X e Y: X= " +coordBaricentricaEnX() + "cm; Y= " + coordBaricentricaEnY() + "cm");
     }
 
+    @Override
     public float coordBaricentricaEnX(){
         return getAncho()/2;
     }
 
+    @Override
     public float coordBaricentricaEnY(){
         return getAltura()/2;
     }

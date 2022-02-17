@@ -15,6 +15,16 @@ public class BarraCircular extends Vigas {
     }
 
     @Override
+    public float coordBaricentricaEnX(){
+        return getRadio();
+    }
+
+    @Override
+    public float coordBaricentricaEnY(){
+        return getRadio();
+    }
+
+    @Override
     public float momentoDeInerciaY(){
         return (radio * radio * radio * radio)/12;
     }
