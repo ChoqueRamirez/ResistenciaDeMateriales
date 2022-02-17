@@ -1,6 +1,6 @@
 package secciones;
 
-public class TuboRectangular extends VigasConAlturaYAncho {
+public class TuboRectangular extends VigaConAlturaYAncho {
 
     private final float espesor1;
     private final float espesor2;

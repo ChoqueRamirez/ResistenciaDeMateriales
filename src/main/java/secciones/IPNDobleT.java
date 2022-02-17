@@ -1,6 +1,6 @@
 package secciones;
 
-public class IPNDobleT extends VigasConAlturaYAncho {
+public class IPNDobleT extends VigaConAlturaYAncho {
 
     private final String designacion;
     private final float area;

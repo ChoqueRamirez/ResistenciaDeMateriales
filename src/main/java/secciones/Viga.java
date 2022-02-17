@@ -2,12 +2,12 @@ package secciones;
 
 import exceptions.VigaConLargoIndefinidoException;
 
-public abstract class Vigas {
+public abstract class Viga {
     protected float largo;
     protected int E;
     protected int G;
 
-    public Vigas(float largo, int e, int g) {
+    public Viga(float largo, int e, int g) {
         if(largo <= 0){
             throw new VigaConLargoIndefinidoException("La viga debe tener un largo");
         }

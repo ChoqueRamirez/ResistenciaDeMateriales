@@ -1,6 +1,6 @@
 package secciones;
 
-public class BarraCircular extends Vigas{
+public class BarraCircular extends Viga {
 
     private final float radio;
 

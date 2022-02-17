@@ -1,6 +1,6 @@
 package secciones;
 
-public class VigaRectangular extends VigasConAlturaYAncho {
+public class VigaRectangular extends VigaConAlturaYAncho {
 
     public VigaRectangular(float altura, float ancho, float largo, int E, int G){
         super(altura, ancho, largo, E, G);
