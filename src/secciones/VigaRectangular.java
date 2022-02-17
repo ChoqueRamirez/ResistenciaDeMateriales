@@ -48,20 +48,6 @@ public class VigaRectangular extends Vigas{
         }
     }
 
-    @Override
-    public float rigidezAxial() {
-        return ((E * getArea()) / largo);
-    }
-
-    @Override
-    public float condicionRigidezFlexional(){
-        return (momentoDeInerciaY() * E);
-    }
-
-    @Override
-    public float condicionRigidezTorsional(){
-        return 0;
-    }
 
     @Override
     public float getArea(){

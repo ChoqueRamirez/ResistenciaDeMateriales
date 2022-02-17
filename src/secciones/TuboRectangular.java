@@ -5,7 +5,7 @@ public class TuboRectangular extends Vigas{
     private float espesor1;
     private float espesor2;
 
-    public TuboRectangular(float altura, float espesor1, float ancho, float espesor2, float largo, int E, int G) {
+    public TuboRectangular(float ancho, float espesor1, float altura, float espesor2,  float largo, int E, int G) {
         super(altura, ancho, largo, E, G);
         this.espesor1 = espesor1;
         this.espesor2 = espesor2;
@@ -40,22 +40,15 @@ public class TuboRectangular extends Vigas{
 
     @Override
     public float momentosPolarDeInercia() {
-        return 0;
+        if(radio != 0){
+            return (float) ((Math.PI * radio * radio * radio * radio)/4);
+        }else{
+            return 0;
+        }
     }
 
-    @Override
-    public float rigidezAxial() {
-        return 0;
-    }
-
-    @Override
-    public float condicionRigidezFlexional() {
-        return 0;
-    }
-
-    @Override
-    public float condicionRigidezTorsional() {
-        return 0;
+    public float constanteDeTorsion(){
+        return (ancho-espesor1)*(altura-espesor2);
     }
 
     @Override
@@ -65,21 +58,29 @@ public class TuboRectangular extends Vigas{
 
     @Override
     public float getLargo() {
-        return 0;
+        return largo;
     }
 
     @Override
     public float getAltura() {
-        return 0;
+        return altura;
     }
 
     @Override
     public float getAncho() {
-        return 0;
+        return ancho;
     }
 
     @Override
     public float getRadio() {
-        return 0;
+        return radio;
+    }
+
+    public float getEspesor1() {
+        return espesor1;
+    }
+
+    public float getEspesor2() {
+        return espesor2;
     }
 }

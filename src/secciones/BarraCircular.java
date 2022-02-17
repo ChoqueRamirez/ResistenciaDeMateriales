@@ -39,18 +39,6 @@ public class BarraCircular extends Vigas {
         return (float) ((Math.PI * radio * radio * radio * radio)/4);
     }
 
-    public float rigidezAxial(){
-        return ((E * getArea())/largo);
-    }
-
-    public float condicionRigidezFlexional() {
-        return (momentosPolarDeInercia() * E);
-    }
-
-    public float condicionRigidezTorsional(){
-        return (momentosPolarDeInercia() * G);
-    }
-
     @Override
     public float getArea(){
         return (float) (Math.PI * radio * radio);

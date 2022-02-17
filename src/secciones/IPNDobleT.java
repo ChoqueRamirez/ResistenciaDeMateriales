@@ -53,21 +53,6 @@ public class IPNDobleT extends Vigas{
     }
 
     @Override
-    public float rigidezAxial() {
-        return (int) ((E * getArea()) / largo);
-    }
-
-    @Override
-    public float condicionRigidezFlexional() {
-        return (momentoDeInerciaY() * E);
-    }
-
-    @Override
-    public float condicionRigidezTorsional() {
-        return 0;
-    }
-
-    @Override
     public float getArea() {
         return area;
     }
