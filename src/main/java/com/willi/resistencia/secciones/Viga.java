@@ -1,6 +1,6 @@
-package secciones;
+package com.willi.resistencia.secciones;
 
-import exceptions.VigaConLargoIndefinidoException;
+import com.willi.resistencia.exceptions.VigaConLargoIndefinidoException;
 
 public abstract class Viga {
     protected float largo;

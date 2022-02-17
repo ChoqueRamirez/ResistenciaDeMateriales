@@ -1,9 +1,8 @@
-package Secciones;
+package com.willi.resistencia.secciones;
 
-import exceptions.VigaConLargoIndefinidoException;
+import com.willi.resistencia.exceptions.VigaConLargoIndefinidoException;
 import org.junit.Assert;
 import org.junit.Test;
-import secciones.VigaRectangular;
 
 public class VigaRectangularTest {
 

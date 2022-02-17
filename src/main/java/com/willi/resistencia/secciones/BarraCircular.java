@@ -1,4 +1,4 @@
-package secciones;
+package com.willi.resistencia.secciones;
 
 public class BarraCircular extends Viga {
 

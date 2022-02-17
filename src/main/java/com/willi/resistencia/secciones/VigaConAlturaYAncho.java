@@ -1,4 +1,4 @@
-package secciones;
+package com.willi.resistencia.secciones;
 
 public abstract class VigaConAlturaYAncho extends Viga {
     protected float altura;

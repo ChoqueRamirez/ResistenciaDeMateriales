@@ -1,7 +1,9 @@
-import complementos.Apoyos;
-import secciones.BarraCircular;
-import secciones.Viga;
-import secciones.VigaRectangular;
+package com.willi.resistencia;
+
+import com.willi.resistencia.complementos.Apoyos;
+import com.willi.resistencia.secciones.BarraCircular;
+import com.willi.resistencia.secciones.Viga;
+import com.willi.resistencia.secciones.VigaRectangular;
 
 import java.util.*;
 

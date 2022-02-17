@@ -1,4 +1,4 @@
-package complementos;
+package com.willi.resistencia.complementos;
 
 public class Coordenadas {
     protected final float coordenadaEnX;

@@ -1,4 +1,4 @@
-package secciones;
+package com.willi.resistencia.secciones;
 
 public class IPNDobleT extends VigaConAlturaYAncho {
 
