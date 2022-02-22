@@ -55,6 +55,11 @@ public class VigaRectangular extends VigaConAlturaYAncho {
     }
 
     @Override
+    public float solicitacionAxil(float fuerza, final String unidad, final String direccion){
+        return fuerza / getArea();
+    }
+
+    @Override
     public float solicitacionTorsional(float fuerza, String unidad, String dirrecion) {
         return 0;
     }

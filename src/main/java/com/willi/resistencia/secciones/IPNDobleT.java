@@ -64,6 +64,11 @@ public class IPNDobleT extends VigaConAlturaYAncho {
     }
 
     @Override
+    public float solicitacionAxil(float fuerza, final String unidad, final String direccion){
+        return fuerza / getArea();
+    }
+
+    @Override
     public float solicitacionAFlexion(float fuerza, final String unidad, final String direccion) {
         return  (fuerza * altura / 2 ) / momentoDeInerciaY();
     }

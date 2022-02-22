@@ -62,17 +62,22 @@ public class TuboRectangular extends VigaConAlturaYAncho {
         return ancho;
     }
 
-    @Override
-    public float solicitacionTorsional(float fuerza, String unidad, String dirrecion) {
-        return fuerza/(2 * constanteDeTorsion() * espesor1);
-    }
-
     public float getEspesor1() {
         return espesor1;
     }
 
     public float getEspesor2() {
         return espesor2;
+    }
+
+    @Override
+    public float solicitacionAxil(float fuerza, final String unidad, final String direccion){
+        return fuerza / getArea();
+    }
+
+    @Override
+    public float solicitacionTorsional(float fuerza, String unidad, String dirrecion) {
+        return fuerza/(2 * constanteDeTorsion() * espesor1);
     }
 
     @Override

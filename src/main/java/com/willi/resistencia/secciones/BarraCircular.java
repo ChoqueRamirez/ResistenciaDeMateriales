@@ -41,14 +41,8 @@ public class BarraCircular extends Viga {
     }
 
     @Override
-    public float getArea(){
-        return (float) (Math.PI * radio * radio);
-    }
-
-
-    @Override
-    public float getLargo() {
-        return largo;
+    public float solicitacionAxil(float fuerza, final String unidad, final String direccion){
+        return fuerza / getArea();
     }
 
     @Override
@@ -56,13 +50,23 @@ public class BarraCircular extends Viga {
         return (fuerza * radio) / momentosPolarDeInercia();
     }
 
-    public float getRadio(){
-        return radio;
-    }
-
     @Override
     public float solicitacionAFlexion(float fuerza, final String unidad, final String direccion) {
         return  (fuerza * radio) / momentoDeInerciaY();
+    }
+
+    @Override
+    public float getArea(){
+        return (float) (Math.PI * radio * radio);
+    }
+
+    @Override
+    public float getLargo() {
+        return largo;
+    }
+
+    public float getRadio(){
+        return radio;
     }
 
 }

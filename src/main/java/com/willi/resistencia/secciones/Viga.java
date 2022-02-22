@@ -18,9 +18,7 @@ public abstract class Viga {
 
     public abstract float getLargo();
 
-    public float solicitacionAxil(float fuerza, final String unidad, final String direccion){
-        return fuerza / getArea();
-    }
+    public abstract float solicitacionAxil(float fuerza, final String unidad, final String direccion);
 
     public abstract float solicitacionAFlexion(float fuerza, final String unidad, final String direccion);
 
