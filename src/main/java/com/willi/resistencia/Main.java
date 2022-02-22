@@ -13,7 +13,7 @@ public class Main {
         v1.baricentro();
 
         Apoyos vf = new Apoyos(2, "Fijo", 0);
-        Apoyos vm = new Apoyos(1 , "Móvil", v1.getLargo());
+        Apoyos vm = new Apoyos(1, "Móvil", v1.getLargo());
 
         System.out.println("Esfuezo normal en Viga1 :" + v1.solicitacionAxil(100, "N", "z") + " N/cm2");
 
@@ -21,14 +21,16 @@ public class Main {
 
         Viga viga = new VigaRectangular(20, 10, 500, 210, 80);
 
+
+
         /*
-        * bolsa de gatos de tamaño fijo y con posiciones
-        * Es una lista fija en longitud
-        * Ventajas: cuando busco algo, lo hace inmediato
-        * Desventaja: es de longitud fija.
-        * Cuando lo uso: cuando sé la cantidad de elementos que voy a usar. Y cuando voy a consultar muchas veces
-        * los valores.
-        * */
+         * bolsa de gatos de tamaño fijo y con posiciones
+         * Es una lista fija en longitud
+         * Ventajas: cuando busco algo, lo hace inmediato
+         * Desventaja: es de longitud fija.
+         * Cuando lo uso: cuando sé la cantidad de elementos que voy a usar. Y cuando voy a consultar muchas veces
+         * los valores.
+         * */
         List<Integer> enteros = new ArrayList<>(2);
         enteros.add(2);
         enteros.add(3);
@@ -50,17 +52,17 @@ public class Main {
         enterosLinkedList.add(3);
 
         /*
-        * bolsa de gatos que no se repiten y sin posiciones
-        * */
+         * bolsa de gatos que no se repiten y sin posiciones
+         * */
         Set<Integer> set = new LinkedHashSet<>();
         set.add(3);
         set.add(3);
         System.out.println(set);
 
         /*
-        * Nombre a las posiciones
-        * Cuando queres acceder a un valor directamente
-        * */
+         * Nombre a las posiciones
+         * Cuando queres acceder a un valor directamente
+         * */
         Map<String, Integer> mapa = new HashMap<>();
         mapa.put("willi", 9);
         mapa.put("gerito", 6);
@@ -74,28 +76,9 @@ public class Main {
         vigas.add(new VigaRectangular(15, 7, 150, 210, 80));
         vigas.add(new BarraCircular(10, 20, 10, 10));
 
-        for(int i = 0; i < vigas.size(); i++){
+        for (int i = 0; i < vigas.size(); i++) {
             System.out.println("Este es una valor de la lista " + vigas.get(i).getLargo());
         }
-
-
-//        System.out.println("");
-//
-//        BarraCircular v2 = new BarraCircular(5, 500, 210, 80);
-//
-//        v2.baricentro();
-//        v2.momentosPolarDeInercia();
-//        v2.rigidezAxial();
-//        v2.condicionRigidezFlexional();
-//        v2.condicionRigidezTorsional();
-//
-//        System.out.println("");
-//
-//        IPNDobleT v3 = new IPNDobleT(22, 9.8F, 500, 210, 85, "220");
-//        v3.baricentro();
-//        v3.momentosDeInercia();
-//        v3.rigidezAxial();
-//        v3.condicionRigidezFlexional();
 
     }
 }
