@@ -1,5 +1,7 @@
 package com.willi.resistencia.secciones;
 
+import java.util.Objects;
+
 public class Rectangular extends VigaConAlturaYAncho {
 
     public Rectangular(float altura, float ancho, float largo, int E, int G){
@@ -41,12 +43,27 @@ public class Rectangular extends VigaConAlturaYAncho {
 
     @Override
     public float solicitacionTorsional(float fuerza, String unidad, String dirrecion) {
-        return 0;
+        if(altura/ancho == 1){
+            return (float) (fuerza / (0.208*altura*Math.pow(ancho, 2)));
+        } else if (altura/ancho == 2 ){
+            return (float) (fuerza/ (0.246*altura*Math.pow(ancho, 2)));
+        }else if (altura/ancho == 3){
+            return (float) (fuerza/ (0.267*altura*Math.pow(ancho, 2)));
+        }
+        else{
+            return 0;
+        }
     }
 
     @Override
     public float solicitacionAFlexion(float fuerza, final String unidad, final String direccion) {
-        return  (fuerza * altura / 2 ) / momentoDeInerciaY();
+        if (Objects.equals(direccion, "y")){
+            return (fuerza * altura/2) / momentoDeInerciaY();
+        } else if (Objects.equals(direccion, "z")){
+            return (fuerza * ancho/2) / momentoDeInerciaZ();
+        } else{
+            return 0;
+        }
     }
 
     public float solicitacionPorCorte(float fuerza, String unidad, final String direccion){

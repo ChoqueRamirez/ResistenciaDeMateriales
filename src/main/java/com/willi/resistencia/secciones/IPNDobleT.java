@@ -1,5 +1,7 @@
 package com.willi.resistencia.secciones;
 
+import java.util.Objects;
+
 public class IPNDobleT extends VigaConAlturaYAncho {
 
     private final String designacion;
@@ -9,9 +11,10 @@ public class IPNDobleT extends VigaConAlturaYAncho {
     private final float Jy;
     private final float Jz;
     private final float momentoEstaticoQ;
+    private final float moduloDeTorsionJ;
 
-    public IPNDobleT(float altura, float ancho,float ty, float tw, float area,
-                     float largo, float Jy, float Jz, float momentoEstaticoQ, int E, int G, String designacion) {
+    public IPNDobleT(float altura, float ancho, float ty, float tw, float area,
+                     float largo, float Jy, float Jz, float momentoEstaticoQ, int E, int G, String designacion, float moduloDeTorsionJ) {
         super(altura, ancho, largo, E, G);
         this.ty = ty;
         this.tw = tw;
@@ -20,6 +23,7 @@ public class IPNDobleT extends VigaConAlturaYAncho {
         this.Jy = Jy;
         this.Jz = Jz;
         this.momentoEstaticoQ = momentoEstaticoQ;
+        this.moduloDeTorsionJ = moduloDeTorsionJ;
         System.out.println("Perfil Doble T - IPN. Se encuentra tabulado");
     }
 
@@ -77,17 +81,22 @@ public class IPNDobleT extends VigaConAlturaYAncho {
 
     @Override
     public float solicitacionAFlexion(float fuerza, final String unidad, final String direccion) {
-        return  (fuerza * altura / 2 ) / momentoDeInerciaY();
+        if (Objects.equals(direccion, "y")){
+            return (fuerza * altura/2) / momentoDeInerciaY();
+        } else if (Objects.equals(direccion, "z")){
+            return (fuerza * ancho/2) / momentoDeInerciaZ();
+        } else{
+            return 0;
+        }
     }
 
     @Override
     public float solicitacionTorsional(float fuerza, String unidad, String dirrecion) {
-        // falta agregar la formula
-        return 0;
+        return (fuerza * tw ) / moduloDeTorsionJ;
     }
 
     public float solicitacionPorCorte(float fuerza, String unidad, final String direccion){
-        return (fuerza * momentoEstaticoQ)/momentoDeInerciaY()*tw;
+        return (fuerza * momentoEstaticoQ) / momentoDeInerciaY()*tw;
     }
 
 }
