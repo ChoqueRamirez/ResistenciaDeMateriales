@@ -1,8 +1,8 @@
 package com.willi.resistencia.secciones;
 
-public class VigaRectangular extends VigaConAlturaYAncho {
+public class Rectangular extends VigaConAlturaYAncho {
 
-    public VigaRectangular(float altura, float ancho, float largo, int E, int G){
+    public Rectangular(float altura, float ancho, float largo, int E, int G){
         super(altura, ancho, largo, E, G);
         System.out.println("Viga Rectangular - Asumimos Linealidades: estatica, cinematica y mecánica");
     }
@@ -31,7 +31,26 @@ public class VigaRectangular extends VigaConAlturaYAncho {
 
     @Override
     public float momentoDeInerciaZ(){
-        return (altura * ancho * ancho * ancho)/12;
+        return (float) ((altura * Math.pow(ancho, 3))/12);
+    }
+
+    @Override
+    public float solicitacionAxil(float fuerza, final String unidad, final String direccion){
+        return fuerza / getArea();
+    }
+
+    @Override
+    public float solicitacionTorsional(float fuerza, String unidad, String dirrecion) {
+        return 0;
+    }
+
+    @Override
+    public float solicitacionAFlexion(float fuerza, final String unidad, final String direccion) {
+        return  (fuerza * altura / 2 ) / momentoDeInerciaY();
+    }
+
+    public float solicitacionPorCorte(float fuerza, String unidad, final String direccion){
+        return (fuerza * (ancho*altura)*altura/4)/momentoDeInerciaY()*ancho;
     }
 
     @Override
@@ -52,21 +71,6 @@ public class VigaRectangular extends VigaConAlturaYAncho {
     @Override
     public float getAncho() {
         return ancho;
-    }
-
-    @Override
-    public float solicitacionAxil(float fuerza, final String unidad, final String direccion){
-        return fuerza / getArea();
-    }
-
-    @Override
-    public float solicitacionTorsional(float fuerza, String unidad, String dirrecion) {
-        return 0;
-    }
-
-    @Override
-    public float solicitacionAFlexion(float fuerza, final String unidad, final String direccion) {
-        return  (fuerza * altura / 2 ) / momentoDeInerciaY();
     }
 }
 

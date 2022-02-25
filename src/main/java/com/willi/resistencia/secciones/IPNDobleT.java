@@ -3,16 +3,23 @@ package com.willi.resistencia.secciones;
 public class IPNDobleT extends VigaConAlturaYAncho {
 
     private final String designacion;
+    private final float ty;
+    private final float tw;
     private final float area;
     private final float Jy;
     private final float Jz;
+    private final float momentoEstaticoQ;
 
-    public IPNDobleT(float altura, float ancho, float area, float largo, float Jy, float Jz, int E, int G, String designacion) {
+    public IPNDobleT(float altura, float ancho,float ty, float tw, float area,
+                     float largo, float Jy, float Jz, float momentoEstaticoQ, int E, int G, String designacion) {
         super(altura, ancho, largo, E, G);
+        this.ty = ty;
+        this.tw = tw;
         this.area = area;
         this.designacion = designacion;
         this.Jy = Jy;
         this.Jz = Jz;
+        this.momentoEstaticoQ = momentoEstaticoQ;
         System.out.println("Perfil Doble T - IPN. Se encuentra tabulado");
     }
 
@@ -77,6 +84,10 @@ public class IPNDobleT extends VigaConAlturaYAncho {
     public float solicitacionTorsional(float fuerza, String unidad, String dirrecion) {
         // falta agregar la formula
         return 0;
+    }
+
+    public float solicitacionPorCorte(float fuerza, String unidad, final String direccion){
+        return (fuerza * momentoEstaticoQ)/momentoDeInerciaY()*tw;
     }
 
 }

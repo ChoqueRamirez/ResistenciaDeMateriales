@@ -1,10 +1,12 @@
 package com.willi.resistencia.secciones;
 
-public class BarraCircular extends Viga {
+import java.util.Objects;
+
+public class Circular extends Viga {
 
     private final float radio;
 
-    public BarraCircular(float radio, float largo, int E, int G){
+    public Circular(float radio, float largo, int E, int G){
         super(largo, E, G);
         this.radio = radio;
         System.out.println("Barra Circular - Asumimos Linealidades: estatica, cinematica y mecánica");
@@ -28,16 +30,16 @@ public class BarraCircular extends Viga {
 
     @Override
     public float momentoDeInerciaY(){
-        return (radio * radio * radio * radio) / 12;
+        return (float) ((Math.PI * Math.pow(radio, 4)) / 4);
     }
 
     @Override
     public float momentoDeInerciaZ(){
-        return (radio * radio * radio * radio)/12;
+        return (float) ((Math.PI * Math.pow(radio, 4)) / 4);
     }
 
     public float momentosPolarDeInercia(){
-        return (float) ((Math.PI * radio * radio * radio * radio)/4);
+        return (float) ((Math.PI * Math.pow(radio, 4))/2);
     }
 
     @Override
@@ -52,7 +54,17 @@ public class BarraCircular extends Viga {
 
     @Override
     public float solicitacionAFlexion(float fuerza, final String unidad, final String direccion) {
-        return  (fuerza * radio) / momentoDeInerciaY();
+        if (Objects.equals(direccion, "y")){
+            return (fuerza * radio) / momentoDeInerciaY();
+        } else if (Objects.equals(direccion, "z")){
+            return (fuerza * radio) / momentoDeInerciaZ();
+        } else{
+            return 0;
+        }
+    }
+
+    public float solicitacionPorCorte(float fuerza, String unidad, final String direccion){
+        return (float) (fuerza * (getArea()/2)*(4*radio)/(3*Math.PI))/(momentoDeInerciaY()*radio*2);
     }
 
     @Override

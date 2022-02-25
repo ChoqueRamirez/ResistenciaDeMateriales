@@ -16,12 +16,6 @@ public abstract class Viga {
         G = g;
     }
 
-    public abstract float getLargo();
-
-    public abstract float solicitacionAxil(float fuerza, final String unidad, final String direccion);
-
-    public abstract float solicitacionAFlexion(float fuerza, final String unidad, final String direccion);
-
     public abstract void baricentro();
 
     public abstract float coordBaricentricaEnX();
@@ -32,7 +26,13 @@ public abstract class Viga {
 
     public abstract float momentoDeInerciaZ();
 
-    public abstract float getArea();
+    public abstract float solicitacionAxil(float fuerza, final String unidad, final String direccion);
+
+    public abstract float solicitacionAFlexion(float fuerza, final String unidad, final String direccion);
 
     public abstract float solicitacionTorsional(float fuerza, String unidad, String dirrecion);
+
+    public abstract float getArea();
+
+    public abstract float getLargo();
 }

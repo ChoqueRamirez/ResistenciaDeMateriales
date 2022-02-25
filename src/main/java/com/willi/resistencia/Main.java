@@ -1,15 +1,15 @@
 package com.willi.resistencia;
 
 import com.willi.resistencia.complementos.Apoyos;
-import com.willi.resistencia.secciones.BarraCircular;
+import com.willi.resistencia.secciones.Circular;
 import com.willi.resistencia.secciones.Viga;
-import com.willi.resistencia.secciones.VigaRectangular;
+import com.willi.resistencia.secciones.Rectangular;
 
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        VigaRectangular v1 = new VigaRectangular(20, 10, 500, 210, 80);
+        Rectangular v1 = new Rectangular(20, 10, 500, 210, 80);
         v1.baricentro();
 
         Apoyos vf = new Apoyos(2, "Fijo", 0);
@@ -19,7 +19,7 @@ public class Main {
 
         System.out.println("Esfuerzo a Flexion Recta en direccion Y: " + v1.solicitacionAFlexion(50, "Nm", "y"));
 
-        Viga viga = new VigaRectangular(20, 10, 500, 210, 80);
+        Viga viga = new Rectangular(20, 10, 500, 210, 80);
 
 
 
@@ -71,10 +71,10 @@ public class Main {
 
 
         List<Viga> vigas = new LinkedList<>();
-        vigas.add(new VigaRectangular(20, 10, 500, 210, 80));
-        vigas.add(new VigaRectangular(10, 5, 300, 210, 80));
-        vigas.add(new VigaRectangular(15, 7, 150, 210, 80));
-        vigas.add(new BarraCircular(10, 20, 10, 10));
+        vigas.add(new Rectangular(20, 10, 500, 210, 80));
+        vigas.add(new Rectangular(10, 5, 300, 210, 80));
+        vigas.add(new Rectangular(15, 7, 150, 210, 80));
+        vigas.add(new Circular(10, 20, 10, 10));
 
         for (int i = 0; i < vigas.size(); i++) {
             System.out.println("Este es una valor de la lista " + vigas.get(i).getLargo());
