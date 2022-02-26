@@ -71,6 +71,11 @@ public class Rectangular extends VigaConAlturaYAncho {
     }
 
     @Override
+    public float deformacionEspecifica(Viga viga, float fuerza, String unidad, String direccion){
+        return viga.solicitacionAFlexion(fuerza, unidad, direccion) / E;
+    }
+
+    @Override
     public float getArea(){
         return ancho * altura;
     }
