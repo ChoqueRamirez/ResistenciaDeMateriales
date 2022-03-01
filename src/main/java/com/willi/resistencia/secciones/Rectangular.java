@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class Rectangular extends VigaConAlturaYAncho {
 
+
     public Rectangular(float altura, float ancho, float largo, int E, int G){
         super(altura, ancho, largo, E, G);
         System.out.println("Viga Rectangular - Asumimos Linealidades: estatica, cinematica y mecánica");
@@ -66,13 +67,14 @@ public class Rectangular extends VigaConAlturaYAncho {
         }
     }
 
+    @Override
     public float solicitacionPorCorte(float fuerza, String unidad, final String direccion){
         return (fuerza * (ancho*altura)*altura/4)/momentoDeInerciaY()*ancho;
     }
 
     @Override
     public float deformacionEspecifica(Viga viga, float fuerza, String unidad, String direccion){
-        return viga.solicitacionAFlexion(fuerza, unidad, direccion) / E;
+        return solicitacionAxil(fuerza, direccion, direccion) / E;
     }
 
     @Override

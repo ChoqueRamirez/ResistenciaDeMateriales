@@ -63,9 +63,11 @@ public class Circular extends Viga {
         }
     }
 
+    @Override
     public float solicitacionPorCorte(float fuerza, String unidad, final String direccion){
         return (float) (fuerza * (getArea()/2)*(4*radio)/(3*Math.PI))/(momentoDeInerciaY()*radio*2);
     }
+    
 
     @Override
     public float getArea(){

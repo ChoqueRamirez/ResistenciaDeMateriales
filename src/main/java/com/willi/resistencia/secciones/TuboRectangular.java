@@ -85,6 +85,7 @@ public class TuboRectangular extends VigaConAlturaYAncho {
         return  (fuerza * altura / 2 ) / momentoDeInerciaY();
     }
 
+    @Override
     public float solicitacionPorCorte(float fuerza, String unidad, final String direccion){
         return (fuerza * ( 2*(espesor1*((altura/2)-espesor1)) + ((ancho-2*espesor1)*espesor1) ) /momentoDeInerciaY()*(2*espesor1));
     }

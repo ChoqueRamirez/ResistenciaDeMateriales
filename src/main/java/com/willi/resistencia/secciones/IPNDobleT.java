@@ -95,6 +95,7 @@ public class IPNDobleT extends VigaConAlturaYAncho {
         return (fuerza * tw ) / moduloDeTorsionJ;
     }
 
+    @Override
     public float solicitacionPorCorte(float fuerza, String unidad, final String direccion){
         return (fuerza * momentoEstaticoQ) / momentoDeInerciaY()*tw;
     }
@@ -103,5 +104,6 @@ public class IPNDobleT extends VigaConAlturaYAncho {
     public float deformacionEspecifica(Viga viga, float fuerza, String unidad, String direccion){
         return viga.solicitacionAFlexion(fuerza, unidad, direccion) / E;
     }
+
 
 }

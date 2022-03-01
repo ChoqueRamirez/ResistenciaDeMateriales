@@ -32,6 +32,8 @@ public abstract class Viga {
 
     public abstract float solicitacionTorsional(float fuerza, String unidad, String dirrecion);
 
+    public abstract float solicitacionPorCorte(float fuerza, String unidad, final String direccion);
+
     public abstract float getArea();
 
     public abstract float getLargo();
