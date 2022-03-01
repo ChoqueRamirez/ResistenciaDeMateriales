@@ -4,11 +4,11 @@ import com.willi.resistencia.exceptions.VigaConLargoIndefinidoException;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class VigaRectangularTest {
+public class RectangularTest {
 
     @Test
     public void area_de_la_viga_de_10_x_10_deberia_devolver_100() {
-        VigaRectangular vigaRectangular = new VigaRectangular(10f, 10f, 40f, 0, 0);
+        Rectangular vigaRectangular = new Rectangular(10f, 10f, 40f, 0, 0);
         float realArea = vigaRectangular.getArea();
         float expectedArea = 100f;
         Assert.assertEquals(expectedArea, realArea, 0.1);
@@ -16,7 +16,7 @@ public class VigaRectangularTest {
 
     @Test(expected = VigaConLargoIndefinidoException.class)
     public void largo_de_viga_negativo_deberia_tirar_un_error() {
-        VigaRectangular vigaRectangular = new VigaRectangular(10f, 10f, -5f, 0, 0);
+        Rectangular vigaRectangular = new Rectangular(10f, 10f, -5f, 0, 0);
     }
 
     // me gustaría que hagas el test para que cuando creo una viga de dimensiones negativas
