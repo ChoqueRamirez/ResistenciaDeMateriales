@@ -21,12 +21,5 @@ public class Main {
 
         Viga viga = new Rectangular(20, 10, 500, 210, 80);
 
-
-
-
-
-
-
-
     }
 }

@@ -44,7 +44,7 @@ public class Circular extends Viga {
 
     @Override
     public float solicitacionAxil(float fuerza, final String unidad, final String direccion){
-        return fuerza / getArea();
+        return tensionNormal = fuerza / getArea();
     }
 
     @Override
@@ -67,7 +67,6 @@ public class Circular extends Viga {
     public float solicitacionPorCorte(float fuerza, String unidad, final String direccion){
         return (float) (fuerza * (getArea()/2)*(4*radio)/(3*Math.PI))/(momentoDeInerciaY()*radio*2);
     }
-    
 
     @Override
     public float getArea(){

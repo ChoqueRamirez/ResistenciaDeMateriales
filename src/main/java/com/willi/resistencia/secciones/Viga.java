@@ -6,6 +6,10 @@ public abstract class Viga {
     protected float largo;
     protected int E;
     protected int G;
+    protected float tensionNormal;
+    protected float tensionTangencial;
+    protected float deformacionLongitudinal;
+    protected float deformacionTansversal;
 
     public Viga(float largo, int e, int g) {
         if(largo <= 0){

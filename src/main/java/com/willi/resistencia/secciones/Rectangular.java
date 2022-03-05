@@ -39,7 +39,7 @@ public class Rectangular extends VigaConAlturaYAncho {
 
     @Override
     public float solicitacionAxil(float fuerza, final String unidad, final String direccion){
-        return fuerza / getArea();
+        return tensionNormal = fuerza / getArea();
     }
 
     @Override
@@ -74,7 +74,7 @@ public class Rectangular extends VigaConAlturaYAncho {
 
     @Override
     public float deformacionEspecifica(Viga viga, float fuerza, String unidad, String direccion){
-        return solicitacionAxil(fuerza, direccion, direccion) / E;
+        return tensionNormal / E;
     }
 
     @Override
