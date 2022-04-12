@@ -5,19 +5,18 @@ public class Apoyos {
     private final int condicionDeVinculo;
     private final int GRADOS_DE_LIBERTAD = 3;
     private String tipoDeVinculo;
-    private float longitud;
+    private float coordenadaX;
+    private float coordenadaZ;
     protected int gradoDeHiperestaticidad;
 
 
-    public Apoyos(int condicionDeVinculo, String tipoDeVinculo, float longitud){
+    public Apoyos(int condicionDeVinculo, String tipoDeVinculo, float coordenadaX, float coordenadaZ){
         this.condicionDeVinculo = condicionDeVinculo;
         this.tipoDeVinculo = tipoDeVinculo;
-        this.longitud = longitud;
+        this.coordenadaX = coordenadaX;
+        this.coordenadaZ = coordenadaZ;
     }
 
-    public int gradoDeHiperesticidad() {
-        return condicionDeVinculo - GRADOS_DE_LIBERTAD;
-    }
 
 
 

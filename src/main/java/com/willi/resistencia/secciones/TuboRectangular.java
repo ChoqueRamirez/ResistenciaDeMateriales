@@ -43,6 +43,26 @@ public class TuboRectangular extends VigaConAlturaYAncho {
     }
 
     @Override
+    public float solicitacionAxil(float carga, final String unidad, final String direccion){
+        return carga / getArea();
+    }
+
+    @Override
+    public float solicitacionTorsional(float carga, String unidad, String dirrecion) {
+        return carga/(2 * constanteDeTorsion() * espesor1);
+    }
+
+    @Override
+    public float solicitacionAFlexion(float carga, final String unidad, final String direccion) {
+        return  ((carga*getLargo()/4) * altura / 2 ) / momentoDeInerciaY();
+    }
+
+    @Override
+    public float solicitacionPorCorte(float carga, String unidad, final String direccion){
+        return (carga/2 * ( 2*(espesor1*((altura/2)-espesor1)) + ((ancho-2*espesor1)*espesor1) ) /momentoDeInerciaY()*(2*espesor1));
+    }
+
+    @Override
     public float getArea() {
         return 0;
     }
@@ -70,28 +90,4 @@ public class TuboRectangular extends VigaConAlturaYAncho {
         return espesor2;
     }
 
-    @Override
-    public float solicitacionAxil(float fuerza, final String unidad, final String direccion){
-        return fuerza / getArea();
-    }
-
-    @Override
-    public float solicitacionTorsional(float fuerza, String unidad, String dirrecion) {
-        return fuerza/(2 * constanteDeTorsion() * espesor1);
-    }
-
-    @Override
-    public float solicitacionAFlexion(float fuerza, final String unidad, final String direccion) {
-        return  (fuerza * altura / 2 ) / momentoDeInerciaY();
-    }
-
-    @Override
-    public float solicitacionPorCorte(float fuerza, String unidad, final String direccion){
-        return (fuerza * ( 2*(espesor1*((altura/2)-espesor1)) + ((ancho-2*espesor1)*espesor1) ) /momentoDeInerciaY()*(2*espesor1));
-    }
-
-    @Override
-    public float deformacionEspecifica(Viga viga, float fuerza, String unidad, String direccion){
-        return viga.solicitacionAFlexion(fuerza, unidad, direccion) / E;
-    }
 }

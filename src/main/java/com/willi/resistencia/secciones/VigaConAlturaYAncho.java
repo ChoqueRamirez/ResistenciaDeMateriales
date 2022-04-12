@@ -10,8 +10,6 @@ public abstract class VigaConAlturaYAncho extends Viga {
         this.ancho = ancho;
     }
 
-    public abstract float deformacionEspecifica(Viga viga, float fuerza, String unidad, String direccion);
-
     public abstract float getAltura();
 
     public abstract float getAncho();

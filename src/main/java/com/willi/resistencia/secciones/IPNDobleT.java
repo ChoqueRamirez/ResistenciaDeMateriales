@@ -75,34 +75,29 @@ public class IPNDobleT extends VigaConAlturaYAncho {
     }
 
     @Override
-    public float solicitacionAxil(float fuerza, final String unidad, final String direccion){
-        return fuerza / getArea();
+    public float solicitacionAxil(float carga, final String unidad, final String direccion){
+        return carga / getArea();
     }
 
     @Override
-    public float solicitacionAFlexion(float fuerza, final String unidad, final String direccion) {
+    public float solicitacionAFlexion(float carga, final String unidad, final String direccion) {
         if (Objects.equals(direccion, "y")){
-            return (fuerza * altura/2) / momentoDeInerciaY();
+            return ((carga * getLargo() / 4) * altura/2) / momentoDeInerciaY();
         } else if (Objects.equals(direccion, "z")){
-            return (fuerza * ancho/2) / momentoDeInerciaZ();
+            return ((carga * getLargo() / 4) * ancho/2) / momentoDeInerciaZ();
         } else{
             return 0;
         }
     }
 
     @Override
-    public float solicitacionTorsional(float fuerza, String unidad, String dirrecion) {
-        return (fuerza * tw ) / moduloDeTorsionJ;
+    public float solicitacionTorsional(float carga, String unidad, String dirrecion) {
+        return (carga * tw ) / moduloDeTorsionJ;
     }
 
     @Override
-    public float solicitacionPorCorte(float fuerza, String unidad, final String direccion){
-        return (fuerza * momentoEstaticoQ) / momentoDeInerciaY()*tw;
-    }
-
-    @Override
-    public float deformacionEspecifica(Viga viga, float fuerza, String unidad, String direccion){
-        return viga.solicitacionAFlexion(fuerza, unidad, direccion) / E;
+    public float solicitacionPorCorte(float carga, String unidad, final String direccion){
+        return (carga/2 * momentoEstaticoQ) / momentoDeInerciaY()*tw;
     }
 
 
