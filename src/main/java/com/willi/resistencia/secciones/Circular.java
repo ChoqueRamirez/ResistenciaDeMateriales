@@ -15,7 +15,6 @@ public class Circular extends Viga {
             throw new VigaConRadioIndefinidoException("La viga debe tener un radio positivo");
         }
         this.radio = radio;
-        System.out.println("Barra Circular - Asumimos Linealidades: estatica, cinematica y mecánica");
     }
 
 

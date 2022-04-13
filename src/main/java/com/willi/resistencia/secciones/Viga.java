@@ -1,5 +1,6 @@
 package com.willi.resistencia.secciones;
 
+import com.willi.resistencia.exceptions.ModulosIndefinidosException;
 import com.willi.resistencia.exceptions.VigaConLargoIndefinidoException;
 
 public abstract class Viga {
@@ -10,6 +11,8 @@ public abstract class Viga {
     public Viga(float largo, int e, int g) {
         if(largo <= 0){
             throw new VigaConLargoIndefinidoException("La viga debe tener un largo");
+        }else if(e <= 0 || g <= 0){
+            throw new ModulosIndefinidosException("Los modulos deben ser mayores a cero");
         }
         this.largo = largo;
         E = e;

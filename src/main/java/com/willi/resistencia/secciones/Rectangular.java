@@ -1,5 +1,7 @@
 package com.willi.resistencia.secciones;
 
+import com.willi.resistencia.exceptions.ModulosIndefinidosException;
+
 import java.util.Objects;
 
 public class Rectangular extends VigaConAlturaYAncho {
@@ -7,7 +9,6 @@ public class Rectangular extends VigaConAlturaYAncho {
 
     public Rectangular(float altura, float ancho, float largo, int E, int G){
         super(altura, ancho, largo, E, G);
-        System.out.println("Viga Rectangular - Asumimos Linealidades: estatica, cinematica y mecánica");
     }
 
     @Override
