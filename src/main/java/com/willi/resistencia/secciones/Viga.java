@@ -13,10 +13,11 @@ public abstract class Viga {
             throw new VigaConLargoIndefinidoException("La viga debe tener un largo");
         }else if(e <= 0 || g <= 0){
             throw new ModulosIndefinidosException("Los modulos deben ser mayores a cero");
+        }else {
+            this.largo = largo;
+            E = e;
+            G = g;
         }
-        this.largo = largo;
-        E = e;
-        G = g;
     }
 
     public abstract void baricentro();

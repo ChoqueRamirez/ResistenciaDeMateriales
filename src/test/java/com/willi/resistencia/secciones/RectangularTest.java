@@ -25,9 +25,19 @@ public class RectangularTest {
         Rectangular vigaRectangular = new Rectangular(10f, 10f, -5f, 0, 0);
     }
 
+    @Test(expected = VigaNoEsbeltaException.class)
+    public void viga_con_poca_longitud_deberia_tirar_un_error(){
+        Rectangular vr = new Rectangular(20, 10 , 50, 2000, 1500);
+    }
+
     @Test(expected = ModulosIndefinidosException.class)
-    public void modulos_negativos_o_nulos_deberian_tirar_un_error(){
-        Rectangular vR = new Rectangular(10, 10, 500, 0, -2000);
+    public void modulos_negativos_deberian_tirar_un_error(){
+        Rectangular vR = new Rectangular(10, 10, 500, -1000, -2000);
+    }
+
+    @Test(expected = ModulosIndefinidosException.class)
+    public void modulos_nulos_deberian_tirar_un_error(){
+        Rectangular vR = new Rectangular(10, 10, 500, 0, -0);
     }
 
     @Test
@@ -44,6 +54,14 @@ public class RectangularTest {
         float realJz = vr.momentoDeInerciaZ();
         float expectedJz = 1666.67f;
         Assert.assertEquals(expectedJz, realJz, 0.1);
+    }
+
+    @Test
+    public void s_Axil_con_carga_negativa_1000_deberia_devolver_una_tension_negativa_5(){
+        Rectangular vr = new Rectangular(20, 10, 500, 2500, 1500);
+        float realSA = vr.solicitacionAxil(-1000, "kN", "x");
+        float expectedSA = -5;
+        Assert.assertEquals(expectedSA, realSA,0.1);
     }
 
 

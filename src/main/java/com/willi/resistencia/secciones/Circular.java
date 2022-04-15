@@ -2,6 +2,7 @@ package com.willi.resistencia.secciones;
 
 import com.willi.resistencia.exceptions.VigaConLargoIndefinidoException;
 import com.willi.resistencia.exceptions.VigaConRadioIndefinidoException;
+import com.willi.resistencia.exceptions.VigaNoEsbeltaException;
 
 import java.util.Objects;
 
@@ -11,10 +12,13 @@ public class Circular extends Viga {
 
     public Circular(float radio, float largo, int E, int G) {
         super(largo, E, G);
-        if(radio <= 0){
+        if (radio <= 0) {
             throw new VigaConRadioIndefinidoException("La viga debe tener un radio positivo");
+        } else if (largo / radio < 10) {
+            throw new VigaNoEsbeltaException("Una de las dimensiones de la viga debe ser mas grande que las otras dos");
+        } else {
+            this.radio = radio;
         }
-        this.radio = radio;
     }
 
 
