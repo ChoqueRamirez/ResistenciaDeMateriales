@@ -9,7 +9,7 @@ public class RectangularTest {
 
     @Test
     public void area_de_la_viga_de_10_x_10_deberia_devolver_100() {
-        Rectangular vigaRectangular = new Rectangular(10f, 10f, 40f, 2000, 1500);
+        Rectangular vigaRectangular = new Rectangular(10f, 10f, 400f, 2000, 1500);
         float realArea = vigaRectangular.getArea();
         float expectedArea = 100f;
         Assert.assertEquals(expectedArea, realArea, 0.1);

@@ -7,6 +7,10 @@ public abstract class Viga {
     protected float largo;
     protected int E;
     protected int G;
+    protected float tensionNormalSA;
+    protected float tensionNormalSF;
+    protected float tensionTangencialST;
+    protected float tensionTangencialFV;
 
     public Viga(float largo, int e, int g) {
         if(largo <= 0){
@@ -15,8 +19,8 @@ public abstract class Viga {
             throw new ModulosIndefinidosException("Los modulos deben ser mayores a cero");
         }else {
             this.largo = largo;
-            E = e;
-            G = g;
+            this.E = e;
+            this.G = g;
         }
     }
 

@@ -40,38 +40,39 @@ public class Rectangular extends VigaConAlturaYAncho {
 
     @Override
     public float solicitacionAxil(float carga, final String unidad, final String direccion){
-        return carga / getArea();
+        return  tensionNormalSA = carga / getArea();
     }
 
     @Override
     public float solicitacionTorsional(float fuerza, String unidad, String dirrecion) {
         if(altura/ancho == 1){
-            return (float) (fuerza / (0.208*altura*Math.pow(ancho, 2)));
+            return  tensionTangencialST = (float) (fuerza / (0.208*altura*Math.pow(ancho, 2)));
         } else if (altura/ancho == 2 ){
-            return (float) (fuerza/ (0.246*altura*Math.pow(ancho, 2)));
+            return tensionTangencialST = (float) (fuerza/ (0.246*altura*Math.pow(ancho, 2)));
         }else if (altura/ancho == 3){
-            return (float) (fuerza/ (0.267*altura*Math.pow(ancho, 2)));
+            return tensionTangencialST = (float) (fuerza/ (0.267*altura*Math.pow(ancho, 2)));
         }
         else{
-            return 0;
+            return tensionTangencialST = 0;
         }
     }
 
     @Override
     public float solicitacionAFlexion(float carga, final String unidad, final String direccion) {
         if (Objects.equals(direccion, "y")){
-            return ((carga * getLargo() / 4) * altura/2) / momentoDeInerciaY();
+            return tensionNormalSF = ((carga * getLargo() / 4) * altura/2) / momentoDeInerciaY();
         } else if (Objects.equals(direccion, "z")){
-            return ((carga * getLargo() / 4) * ancho/2) / momentoDeInerciaZ();
+            return tensionNormalSF = ((carga * getLargo() / 4) * ancho/2) / momentoDeInerciaZ();
         } else{
-            return 0;
+            return tensionNormalSF = 0;
         }
     }
 
     @Override
     public float solicitacionPorCorte(float carga, String unidad, final String direccion){
-        return (carga/2 * (ancho*altura)*altura/4)/momentoDeInerciaY()*ancho;
+        return tensionTangencialFV = (carga/2 * (ancho*altura)*altura/4)/momentoDeInerciaY()*ancho;
     }
+    
 
     @Override
     public float getArea(){

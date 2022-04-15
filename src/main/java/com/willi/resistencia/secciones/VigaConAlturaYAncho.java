@@ -6,10 +6,7 @@ import com.willi.resistencia.exceptions.VigaNoEsbeltaException;
 public abstract class VigaConAlturaYAncho extends Viga {
     protected float altura;
     protected float ancho;
-    protected float tensionNormalSA;
-    protected float tensionNormalSF;
-    protected float tensionTangencialST;
-    protected float tensionTangencialFV;
+
 
     public VigaConAlturaYAncho(float altura, float ancho, float largo, int E, int G) {
         super(largo, E, G);
