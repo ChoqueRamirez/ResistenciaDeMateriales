@@ -40,7 +40,7 @@ public class Rectangular extends VigaConAlturaYAncho {
 
     @Override
     public float solicitacionAxil(float carga, final String unidad, final String direccion){
-        return  tensionNormalSA = carga / getArea();
+        return tensionNormalSA = carga / getArea();
     }
 
     @Override
@@ -72,7 +72,16 @@ public class Rectangular extends VigaConAlturaYAncho {
     public float solicitacionPorCorte(float carga, String unidad, final String direccion){
         return tensionTangencialFV = (carga/2 * (ancho*altura)*altura/4)/momentoDeInerciaY()*ancho;
     }
-    
+
+    @Override
+    public float deformacionEspLong(){
+        return (getTensionNormalSA() + getTensionNormalSF())/E;
+    }
+
+    @Override
+    public float deformacionEspTang(){
+        return (getTensionTangencialFV() + getTensionTangencialST())/G;
+    }
 
     @Override
     public float getArea(){
@@ -92,6 +101,26 @@ public class Rectangular extends VigaConAlturaYAncho {
     @Override
     public float getAncho() {
         return ancho;
+    }
+
+    @Override
+    public float getTensionNormalSA() {
+        return tensionNormalSA;
+    }
+
+    @Override
+    public float getTensionNormalSF() {
+        return tensionNormalSF;
+    }
+
+    @Override
+    public float getTensionTangencialST() {
+        return tensionTangencialST;
+    }
+
+    @Override
+    public float getTensionTangencialFV() {
+        return tensionTangencialFV;
     }
 }
 

@@ -44,22 +44,32 @@ public class TuboRectangular extends VigaConAlturaYAncho {
 
     @Override
     public float solicitacionAxil(float carga, final String unidad, final String direccion){
-        return carga / getArea();
+        return tensionNormalSA = carga / getArea();
     }
 
     @Override
     public float solicitacionTorsional(float carga, String unidad, String dirrecion) {
-        return carga/(2 * constanteDeTorsion() * espesor1);
+        return tensionTangencialST = carga/(2 * constanteDeTorsion() * espesor1);
     }
 
     @Override
     public float solicitacionAFlexion(float carga, final String unidad, final String direccion) {
-        return  ((carga*getLargo()/4) * altura / 2 ) / momentoDeInerciaY();
+        return tensionNormalSF = ((carga*getLargo()/4) * altura / 2 ) / momentoDeInerciaY();
     }
 
     @Override
     public float solicitacionPorCorte(float carga, String unidad, final String direccion){
-        return (carga/2 * ( 2*(espesor1*((altura/2)-espesor1)) + ((ancho-2*espesor1)*espesor1) ) /momentoDeInerciaY()*(2*espesor1));
+        return tensionTangencialFV = (carga/2 * ( 2*(espesor1*((altura/2)-espesor1)) + ((ancho-2*espesor1)*espesor1) ) /momentoDeInerciaY()*(2*espesor1));
+    }
+
+    @Override
+    public float deformacionEspLong(){
+        return (getTensionNormalSA() + getTensionNormalSF())/E;
+    }
+
+    @Override
+    public float deformacionEspTang(){
+        return (getTensionTangencialFV() + getTensionTangencialST())/G;
     }
 
     @Override
@@ -88,6 +98,26 @@ public class TuboRectangular extends VigaConAlturaYAncho {
 
     public float getEspesor2() {
         return espesor2;
+    }
+
+    @Override
+    public float getTensionNormalSA() {
+        return tensionNormalSA;
+    }
+
+    @Override
+    public float getTensionNormalSF() {
+        return tensionNormalSF;
+    }
+
+    @Override
+    public float getTensionTangencialST() {
+        return tensionTangencialST;
+    }
+
+    @Override
+    public float getTensionTangencialFV() {
+        return tensionTangencialFV;
     }
 
 }

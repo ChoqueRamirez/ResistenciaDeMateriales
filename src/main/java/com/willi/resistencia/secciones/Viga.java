@@ -42,7 +42,19 @@ public abstract class Viga {
 
     public abstract float solicitacionPorCorte(float fuerza, String unidad, final String direccion);
 
+    public abstract float deformacionEspLong();
+
+    public abstract float deformacionEspTang();
+
     public abstract float getArea();
 
     public abstract float getLargo();
+
+    public abstract float getTensionNormalSA();
+
+    public abstract float getTensionNormalSF();
+
+    public abstract float getTensionTangencialST();
+
+    public abstract float getTensionTangencialFV();
 }

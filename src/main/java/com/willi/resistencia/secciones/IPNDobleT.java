@@ -55,6 +55,42 @@ public class IPNDobleT extends VigaConAlturaYAncho {
     }
 
     @Override
+    public float solicitacionAxil(float carga, final String unidad, final String direccion){
+        return tensionNormalSA = carga / getArea();
+    }
+
+    @Override
+    public float solicitacionAFlexion(float carga, final String unidad, final String direccion) {
+        if (Objects.equals(direccion, "y")){
+            return tensionNormalSF =  ((carga * getLargo() / 4) * altura/2) / momentoDeInerciaY();
+        } else if (Objects.equals(direccion, "z")){
+            return tensionNormalSF =  ((carga * getLargo() / 4) * ancho/2) / momentoDeInerciaZ();
+        } else{
+            return tensionNormalSF =  0;
+        }
+    }
+
+    @Override
+    public float solicitacionTorsional(float carga, String unidad, String dirrecion) {
+        return tensionTangencialST = (carga * tw ) / moduloDeTorsionJ;
+    }
+
+    @Override
+    public float solicitacionPorCorte(float carga, String unidad, final String direccion){
+        return tensionTangencialFV = (carga/2 * momentoEstaticoQ) / momentoDeInerciaY() * tw;
+    }
+
+    @Override
+    public float deformacionEspLong(){
+        return (getTensionNormalSA() + getTensionNormalSF())/E;
+    }
+
+    @Override
+    public float deformacionEspTang(){
+        return (getTensionTangencialFV() + getTensionTangencialST())/G;
+    }
+
+    @Override
     public float getArea() {
         return area;
     }
@@ -75,30 +111,23 @@ public class IPNDobleT extends VigaConAlturaYAncho {
     }
 
     @Override
-    public float solicitacionAxil(float carga, final String unidad, final String direccion){
-        return carga / getArea();
+    public float getTensionNormalSA() {
+        return tensionNormalSA;
     }
 
     @Override
-    public float solicitacionAFlexion(float carga, final String unidad, final String direccion) {
-        if (Objects.equals(direccion, "y")){
-            return ((carga * getLargo() / 4) * altura/2) / momentoDeInerciaY();
-        } else if (Objects.equals(direccion, "z")){
-            return ((carga * getLargo() / 4) * ancho/2) / momentoDeInerciaZ();
-        } else{
-            return 0;
-        }
+    public float getTensionNormalSF() {
+        return tensionNormalSF;
     }
 
     @Override
-    public float solicitacionTorsional(float carga, String unidad, String dirrecion) {
-        return (carga * tw ) / moduloDeTorsionJ;
+    public float getTensionTangencialST() {
+        return tensionTangencialST;
     }
 
     @Override
-    public float solicitacionPorCorte(float carga, String unidad, final String direccion){
-        return (carga/2 * momentoEstaticoQ) / momentoDeInerciaY()*tw;
+    public float getTensionTangencialFV() {
+        return tensionTangencialFV;
     }
-
 
 }

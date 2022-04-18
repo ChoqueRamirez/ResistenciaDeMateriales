@@ -53,28 +53,38 @@ public class Circular extends Viga {
 
     @Override
     public float solicitacionAxil(float carga, final String unidad, final String direccion) {
-        return (carga / getArea());
+        return tensionNormalSA = (carga / getArea());
     }
 
     @Override
     public float solicitacionTorsional(float carga, String unidad, String dirrecion) {
-        return (carga * radio) / momentosPolarDeInercia();
+        return tensionTangencialST = (carga * radio) / momentosPolarDeInercia();
     }
 
     @Override
     public float solicitacionAFlexion(float carga, final String unidad, final String direccion) {
         if (Objects.equals(direccion, "y")) {
-            return ((carga * getLargo() / 4) * radio) / momentoDeInerciaY();
+            return tensionNormalSF = ((carga * getLargo() / 4) * radio) / momentoDeInerciaY();
         } else if (Objects.equals(direccion, "z")) {
-            return ((carga * getLargo() / 4) * radio) / momentoDeInerciaZ();
+            return tensionNormalSF = ((carga * getLargo() / 4) * radio) / momentoDeInerciaZ();
         } else {
-            return 0;
+            return tensionNormalSF = 0;
         }
     }
 
     @Override
     public float solicitacionPorCorte(float carga, String unidad, final String direccion) {
-        return (float) (carga / 2 * (getArea() / 2) * (4 * radio) / (3 * Math.PI)) / (momentoDeInerciaY() * radio * 2);
+        return tensionTangencialFV = (float) (carga / 2 * (getArea() / 2) * (4 * radio) / (3 * Math.PI)) / (momentoDeInerciaY() * radio * 2);
+    }
+
+    @Override
+    public float deformacionEspLong(){
+        return (getTensionNormalSA() + getTensionNormalSF())/E;
+    }
+
+    @Override
+    public float deformacionEspTang(){
+        return (getTensionTangencialFV() + getTensionTangencialST())/G;
     }
 
     @Override
@@ -89,6 +99,26 @@ public class Circular extends Viga {
 
     public float getRadio() {
         return radio;
+    }
+
+    @Override
+    public float getTensionNormalSA() {
+        return tensionNormalSA;
+    }
+
+    @Override
+    public float getTensionNormalSF() {
+        return tensionNormalSF;
+    }
+
+    @Override
+    public float getTensionTangencialST() {
+        return tensionTangencialST;
+    }
+
+    @Override
+    public float getTensionTangencialFV() {
+        return tensionTangencialFV;
     }
 
 }
