@@ -1,9 +1,6 @@
 package com.willi.resistencia.secciones;
 
-import com.willi.resistencia.exceptions.VigaConLargoIndefinidoException;
-import com.willi.resistencia.exceptions.VigaConRadioIndefinidoException;
-import com.willi.resistencia.exceptions.VigaNoEsbeltaException;
-
+import com.willi.resistencia.exceptions.*;
 import java.util.Objects;
 
 public class Circular extends Viga {
@@ -63,9 +60,9 @@ public class Circular extends Viga {
 
     @Override
     public float solicitacionAFlexion(float carga, final String unidad, final String direccion) {
-        if (Objects.equals(direccion, "y")) {
+        if (Objects.equals(direccion, "z")) {
             return tensionNormalSF = ((carga * getLargo() / 4) * radio) / momentoDeInerciaY();
-        } else if (Objects.equals(direccion, "z")) {
+        } else if (Objects.equals(direccion, "y")) {
             return tensionNormalSF = ((carga * getLargo() / 4) * radio) / momentoDeInerciaZ();
         } else {
             return tensionNormalSF = 0;

@@ -7,7 +7,6 @@ public class Apoyos {
     private String tipoDeVinculo;
     private float coordenadaX;
     private float coordenadaZ;
-    protected int gradoDeHiperestaticidad;
 
 
     public Apoyos(int condicionDeVinculo, String tipoDeVinculo, float coordenadaX, float coordenadaZ){

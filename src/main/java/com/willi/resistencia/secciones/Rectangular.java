@@ -1,7 +1,5 @@
 package com.willi.resistencia.secciones;
 
-import com.willi.resistencia.exceptions.ModulosIndefinidosException;
-
 import java.util.Objects;
 
 public class Rectangular extends VigaConAlturaYAncho {
@@ -39,12 +37,12 @@ public class Rectangular extends VigaConAlturaYAncho {
     }
 
     @Override
-    public float solicitacionAxil(float carga, final String unidad, final String direccion){
+    public float solicitacionAxil(float carga, final String unidadEnkN, final String direccionLocal){
         return tensionNormalSA = carga / getArea();
     }
 
     @Override
-    public float solicitacionTorsional(float fuerza, String unidad, String dirrecion) {
+    public float solicitacionTorsional(float fuerza, String unidadEnkNcm, String dirrecionlocal) {
         if(altura/ancho == 1){
             return  tensionTangencialST = (float) (fuerza / (0.208*altura*Math.pow(ancho, 2)));
         } else if (altura/ancho == 2 ){
@@ -58,10 +56,10 @@ public class Rectangular extends VigaConAlturaYAncho {
     }
 
     @Override
-    public float solicitacionAFlexion(float carga, final String unidad, final String direccion) {
-        if (Objects.equals(direccion, "y")){
-            return tensionNormalSF = ((carga * getLargo() / 4) * altura/2) / momentoDeInerciaY();
-        } else if (Objects.equals(direccion, "z")){
+    public float solicitacionAFlexion(float carga, final String unidadenKn, final String direccionLocal) {
+        if (Objects.equals(direccionLocal, "z")){
+            return tensionNormalSF = (carga * getLargo()/4) * (altura/2) / momentoDeInerciaY();
+        } else if (Objects.equals(direccionLocal, "y")){
             return tensionNormalSF = ((carga * getLargo() / 4) * ancho/2) / momentoDeInerciaZ();
         } else{
             return tensionNormalSF = 0;
@@ -69,8 +67,8 @@ public class Rectangular extends VigaConAlturaYAncho {
     }
 
     @Override
-    public float solicitacionPorCorte(float carga, String unidad, final String direccion){
-        return tensionTangencialFV = (carga/2 * (ancho*altura)*altura/4)/momentoDeInerciaY()*ancho;
+    public float solicitacionPorCorte(float carga, String unidadEnkN, final String direccionLocal){
+        return tensionTangencialFV = (carga/2 * (ancho*altura/2)*altura/4)/(momentoDeInerciaY()*ancho);
     }
 
     @Override

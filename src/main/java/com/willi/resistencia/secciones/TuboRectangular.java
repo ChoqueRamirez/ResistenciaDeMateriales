@@ -1,14 +1,16 @@
 package com.willi.resistencia.secciones;
 
+import java.util.Objects;
+
 public class TuboRectangular extends VigaConAlturaYAncho {
 
-    private final float espesor1;
-    private final float espesor2;
+    private final float espesorAncho;
+    private final float espesorAltura;
 
-    public TuboRectangular(float ancho, float espesor1, float altura, float espesor2,  float largo, int E, int G) {
+    public TuboRectangular(float ancho, float espesorAncho, float altura, float espesorAltura, float largo, int E, int G) {
         super(altura, ancho, largo, E, G);
-        this.espesor1 = espesor1;
-        this.espesor2 = espesor2;
+        this.espesorAncho = espesorAncho;
+        this.espesorAltura = espesorAltura;
     }
 
     @Override
@@ -30,16 +32,16 @@ public class TuboRectangular extends VigaConAlturaYAncho {
 
     @Override
     public float momentoDeInerciaY() {
-        return 0;
+        return (float) ( ((ancho*Math.pow(altura, 3))/12) - ( (ancho-2*espesorAncho)*(Math.pow((altura-2*espesorAltura), 3))/12) );
     }
 
     @Override
     public float momentoDeInerciaZ() {
-        return 0;
+        return (float) (((altura*Math.pow(ancho, 3))/12) - ( (altura-2*espesorAltura)*(Math.pow((ancho-2*espesorAncho), 3))/12));
     }
 
     public float constanteDeTorsion(){
-        return (ancho-espesor1)*(altura-espesor2);
+        return (ancho-espesorAncho)*(altura-espesorAltura);
     }
 
     @Override
@@ -49,17 +51,25 @@ public class TuboRectangular extends VigaConAlturaYAncho {
 
     @Override
     public float solicitacionTorsional(float carga, String unidad, String dirrecion) {
-        return tensionTangencialST = carga/(2 * constanteDeTorsion() * espesor1);
+
+        return tensionTangencialST = carga/(2 * constanteDeTorsion() * espesorAncho);
     }
 
     @Override
-    public float solicitacionAFlexion(float carga, final String unidad, final String direccion) {
-        return tensionNormalSF = ((carga*getLargo()/4) * altura / 2 ) / momentoDeInerciaY();
+    public float solicitacionAFlexion(float carga, final String unidad, final String direccionLocal) {
+        if (Objects.equals(direccionLocal, "z")){
+            return tensionNormalSF = (carga * getLargo()/4) * (altura/2) / momentoDeInerciaY();
+        } else if (Objects.equals(direccionLocal, "y")){
+            return tensionNormalSF = ((carga * getLargo() / 4) * ancho/2) / momentoDeInerciaZ();
+        } else{
+            return tensionNormalSF = 0;
+        }
+
     }
 
     @Override
     public float solicitacionPorCorte(float carga, String unidad, final String direccion){
-        return tensionTangencialFV = (carga/2 * ( 2*(espesor1*((altura/2)-espesor1)) + ((ancho-2*espesor1)*espesor1) ) /momentoDeInerciaY()*(2*espesor1));
+        return tensionTangencialFV = (carga/2 * ( 2*(espesorAncho *((altura/2)- espesorAncho)) + ((ancho-2* espesorAncho)* espesorAncho) ) /momentoDeInerciaY()*(2* espesorAncho));
     }
 
     @Override
@@ -74,7 +84,7 @@ public class TuboRectangular extends VigaConAlturaYAncho {
 
     @Override
     public float getArea() {
-        return 0;
+        return (ancho * altura) - ((ancho-espesorAncho)*(altura-espesorAltura));
     }
 
     @Override
@@ -92,12 +102,12 @@ public class TuboRectangular extends VigaConAlturaYAncho {
         return ancho;
     }
 
-    public float getEspesor1() {
-        return espesor1;
+    public float getEspesorAncho() {
+        return espesorAncho;
     }
 
-    public float getEspesor2() {
-        return espesor2;
+    public float getEspesorAltura() {
+        return espesorAltura;
     }
 
     @Override

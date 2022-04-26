@@ -61,9 +61,9 @@ public class IPNDobleT extends VigaConAlturaYAncho {
 
     @Override
     public float solicitacionAFlexion(float carga, final String unidad, final String direccion) {
-        if (Objects.equals(direccion, "y")){
+        if (Objects.equals(direccion, "z")){
             return tensionNormalSF =  ((carga * getLargo() / 4) * altura/2) / momentoDeInerciaY();
-        } else if (Objects.equals(direccion, "z")){
+        } else if (Objects.equals(direccion, "y")){
             return tensionNormalSF =  ((carga * getLargo() / 4) * ancho/2) / momentoDeInerciaZ();
         } else{
             return tensionNormalSF =  0;

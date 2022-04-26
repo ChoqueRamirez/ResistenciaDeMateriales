@@ -1,7 +1,6 @@
 package com.willi.resistencia.secciones;
 
 import com.willi.resistencia.exceptions.*;
-import javafx.scene.control.cell.TextFieldListCell;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -64,7 +63,48 @@ public class RectangularTest {
         Assert.assertEquals(expectedSA, realSA,0.1);
     }
 
+    @Test
+    public void s_Torsion_con_carga_10000_deberia_devolver_una_tension_de_203_25(){
+        Rectangular vr = new Rectangular(20, 10, 500, 2500, 1500);
+        float realST = vr.solicitacionTorsional(10000, "kNcm", "x");
+        float expectedST = 20.325f;
+        Assert.assertEquals(expectedST, realST, 0.1);
+    }
 
+    @Test
+    public void s_Flexion_con_carga_500_deberia_devolver_una_tension_de_93_75(){
+        Rectangular vr = new Rectangular(20,10, 500, 2500, 1500);
+        float realSF = vr.solicitacionAFlexion(500, "kN", "z");
+        float expectedSF = 93.75f;
+        Assert.assertEquals(expectedSF, realSF, 0.1);
+    }
 
+    @Test
+    public void s_Corte_con_carga_70_negativo_deberia_devolver_una_tension_de_0_14_negativo(){
+        Rectangular vr = new Rectangular(25, 15, 500, 20000, 13000);
+        float realSFV = vr.solicitacionPorCorte(-70, "kN", "z");
+        float expectedSFV = -0.14f;
+        Assert.assertEquals(expectedSFV, realSFV, 0.1);
+    }
+
+    @Test
+    public void deformacion_Especifica_Long_debido_a_una_cargaAxil_de_150_y_carga_200_en_dirZ_deberia_dar_0_0182(){
+        Rectangular vr = new Rectangular(20, 10, 500, 2100, 1300);
+        vr.solicitacionAxil(150,"kN", "x");
+        vr.solicitacionAFlexion(200, "kN", "z");
+        float realDefEspLong = vr.deformacionEspLong();
+        float expectedDefEspLong = 0.0182f;
+        Assert.assertEquals(expectedDefEspLong, realDefEspLong, 0.1);
+    }
+
+    @Test
+    public void deformacion_Especifica_Tang_debido_a_un_Mx_de_30_y_una_carga_200_en_dirZ_deberia_dar(){
+        Rectangular vr = new Rectangular(20, 10, 500, 2100, 1300);
+        vr.solicitacionTorsional(30, "kNcm", "x");
+        vr.solicitacionPorCorte(200, "kN", "z");
+        float realDefEspTang = vr.deformacionEspTang();
+        float expectedDefEspTang = 0.0006238f;
+        Assert.assertEquals(expectedDefEspTang, realDefEspTang, 0.1);
+    }
 
 }

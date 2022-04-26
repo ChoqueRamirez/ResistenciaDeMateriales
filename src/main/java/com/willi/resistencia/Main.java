@@ -16,5 +16,10 @@ public class Main {
         System.out.println("Esfuezo normal en Viga1 :" + v1.solicitacionAxil(1500, "N", "z") + " N");
         System.out.println("area :" + v1.getArea());
         System.out.println("Esfuerzo a Flexion Recta en direccion Y: " + v1.solicitacionAFlexion(50, "Nm", "y") + " kNm");
+
+
+        Rectangular vr = new Rectangular(20, 10, 500, 2100, 1300);
+        System.out.println("sAXil: " + vr.solicitacionTorsional(30, "kNcm", "x"));
+        System.out.println("sFlexion: " + vr.solicitacionPorCorte(200, "kN", "z"));
     }
 }
